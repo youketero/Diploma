@@ -1,0 +1,29 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div style = 'padding-bottom: 10rem'>
+     <form method="POST">
+     {% csrf_token %}
+     {% if form %}
+        <div class=" col-xs-12 p-2 form-group">
+            <p>Выберите группу и кафедру</p>
+            {{ form }}
+             <button type="submit" class="btn btn-outline-primary mt-2">Получить результат</button>
+        </div>
+     {% endif %}
+     </form>
+    {% for r in roz %}
+          <p>{{ r.teacher_id }}</p>
+            <p>{{ r.cource_id }}</p>
+          <p>{{ r.day_id }}</p>
+           <p>{{ r.pare_id.start_time }}</p>
+          <p>{{ r.room_id }}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
