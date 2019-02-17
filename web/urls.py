@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^$', web.views.home, name="home"),
     url(r'^about/$', web.views.about, name ="about"),
     url(r'^article/(?P<article_id>[0-9]+)/$', web.views.show_articles, name='article'),
-    url(r'^rozklad/$', web.views.rozkladd, name ="rozklad")
+    url(r'^rozklad/$', web.views.rozkladd, name ="rozklad"),
+    url(r'^formm/$', web.views.form_user ,name='forms')
 ]
 

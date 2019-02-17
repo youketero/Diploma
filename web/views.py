@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from web.models import Articles,rozklad
-
+from web.forms import method_roz
 
 def home(request):
     articles = Articles.objects.all()
@@ -19,4 +19,15 @@ def about(request):
 def show_articles(request, article_id):
     article = get_object_or_404(Articles, id=article_id)
     return render(request, 'web/article.html', locals())
+
+def form_user(request):
+    if request.method == 'POST':
+        cource = request.POST.get("cource")
+        cathed = request.POST.get("cathed")
+        userform = method_roz()
+        roz = rozklad.objects.filter(cource_id__cource_id=cource, cource_id__cathed_name=cathed)
+        return render(request, 'web/formm.html', locals() )
+    else:
+        userform = method_roz()
+        return render(request,'web/formm.html',{"form":userform})
 
