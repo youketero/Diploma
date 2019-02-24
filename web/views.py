@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from web.models import Articles,rozklad
+from web.models import Articles,rozklad,day
 from web.forms import method_roz
 
 def home(request):
@@ -25,7 +25,8 @@ def form_user(request):
         cource = request.POST.get("cource")
         cathed = request.POST.get("cathed")
         userform = method_roz()
-        roz = rozklad.objects.filter(cource_id__cource_id=cource, cource_id__cathed_name=cathed)
+        roz1 = day.objects.all()
+        roz = rozklad.objects.filter(cource_id__cource_id=cource, cource_id__cathed_name=cathed).order_by('pare_id_id')
         return render(request, 'web/formm.html', locals() )
     else:
         userform = method_roz()

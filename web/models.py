@@ -16,7 +16,11 @@ class Articles(models.Model):
 
     def __unicode__(self):
         return "%s %s %s"   % (self.date,self.title,self.image)
-
+    def short_text(self):
+        if self.text>100:
+            return self.text[:100]+'...'
+        else:
+            return self.text
 class anonce(models.Model):
     title = models.CharField(max_length=20000)
     text = models.TextField()
@@ -72,6 +76,7 @@ class rozklad(models.Model):
    pare_id = models.ForeignKey(pare)
    day_id = models.ForeignKey(day)
    cource_id = models.ForeignKey(cource)
+   cource = models.IntegerField(default=1)
    subject_id = models.ForeignKey(subject)
    teacher_id = models.ForeignKey(teacher)
    room_id = models.ForeignKey(room)

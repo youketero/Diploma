@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
@@ -5,24 +6,25 @@
     <!-- jopa -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/mountain.png"  type="image/png">
 
     <!-- Bootstrap CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600|Roboto" rel="stylesheet">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <title>{% block title %}  {% endblock %}Geol univ</title>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Custom styles for this template -->
     <link href="{% static  "web/bootstrap.css" %}" rel="stylesheet">
-      <link href="{% static  "web/static/style.css" %}" rel="stylesheet">
-
+      <link href="{% static  "web/preloader.css" %}" rel="stylesheet">
 
 
   </head>
 
 
   <body style="background-image: linear-gradient(to left bottom, rgba(32, 178, 170,0.01),rgba(0, 139, 139,0.11)) ">
+
+  <div id="loader"></div>
 
    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #0097A7">
   <a class="navbar-brand p-2" href={% url "home" %} ><img class="rounded-circle" src="{% static  "img/unnamed.jpg" %}" width="60" height="60"></a>
@@ -66,35 +68,36 @@
 </div>
 
 
-
-<div class=" footer text-center p-3 " style="background-color: #00ACC1">
-          <ul class="list-unstyled text-small " style='line-height: 2rem'>
-            <li style="display:inline"><a class="text-dark pr-2" href="#">Журнал вісник</a></li>
-            <li style="display:inline"><a class="text-dark p-2" href="#">Сайт універстету</a></li>
-            <li style="display:inline"><a class="text-dark p-2" href="#">Сайт студпарламенту </a></li>
+<footer class="pt-5">
+<div class=" footer text-center p-3 " style ='background-color: black; opacity: 0.7'>
+          <ul class="list-unstyled text-small " style='line-height: 2rem;'>
+            <li class="d-inline pr-1"><a href="#">Журнал вісник</a></li>
+            <li class="d-inline p-1"><a  href="#">Сайт універстету</a></li>
+            <li class="d-inline p-1"><a   href="#">Сайт студпарламенту </a></li>
           </ul>
 
 </div>
 
-<div class=" footer p-2 " style ='background-color: #00ACC1'>
+<div class=" footer p-2  pb-4" style ='color:white;background-color: black; opacity: 0.7'>
     <div class="container col-xs-12 text-center">
-        <a href="https://t.me/studparlam" class="text-dark"><i class="p-3 fab fa-telegram-plane"></i></a>
-        <a href="boot.html" class="text-dark"> <i class="p-3 fab fa-twitter"></i></a>
-        <a href="boot.html" class="text-dark"> <i class="p-3 fab fa-vk"></i></a>
-        <a href="https://www.facebook.com/www.geol.univ.kiev.ua/" class="text-dark"> <i class="p-3 fab fa-facebook-f"></i></a>
+        <a href="https://t.me/studparlam" ><i class="p-3 fab fa-telegram-plane" style="color: dodgerblue"></i></a>
+        <a href="boot.html"> <i class="p-3 fab fa-twitter" style="color: deepskyblue"></i></a>
+        <a href="boot.html" > <i class="p-3 fab fa-vk" style="color: royalblue"></i></a>
+        <a href="https://www.facebook.com/www.geol.univ.kiev.ua/" class="text-dark"> <i class="p-3 fab fa-facebook-f" style="color: darkblue"></i></a>
     </div>
 
 
 </div>
-<div class="footer  text-center p-3 col-xs-12" style =' background-color: #0097A7'>
+<div class="footer  text-center p-3 col-xs-12" style ='color: #fff3cd; background-color: black; opacity: 0.8'>
        <p > 2018 Powered by bootsrap and Django</p>
 </div>
-
+</footer>
 
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
   </body>
 </html>

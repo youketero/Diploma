@@ -6,15 +6,15 @@
 {% endblock %}
 
 {% block content %}
-   {% for r in roz %}
-        {% if r.day_id.day == "Monday" and r.cource_id.cathed_name == "geology" %}
-          <p>{{ r.teacher_id }}</p>
-            <p>{{ r.cource_id }}</p>
-          <p>{{ r.day_id }}</p>
-           <p>{{ r.pare_id.start_time }}</p>
-          <p>{{ r.room_id }}</p>
-        {% endif %}
-    {% endfor %}-->
+     <script>jQuery(document).ready(function($) {
+  $(window).load(function() {
+    setTimeout(function() {
+      $('.preloader').fadeOut('slow', function() {});
+    }, 20);
 
-
+  });
+});</script>
+<div id="preloader">
+  <div id="loader"></div>
+</div>
 {% endblock %}
