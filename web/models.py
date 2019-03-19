@@ -44,12 +44,6 @@ class cathed(models.Model):
 
     def __str__(self):
         return "%s %s %s" %(self.cathed_name,self.history, self.foto)
-class cource(models.Model):
-    cathed_name = models.ForeignKey(cathed)
-    cource_id = models.IntegerField(default=1)
-
-    def __unicode__(self):
-        return "%s %s" %(self.cathed_name,self.cource_id)
 
 class pare(models.Model):
     id_pare = models.IntegerField(default=1)
@@ -79,21 +73,19 @@ class room(models.Model):
 
 class day(models.Model):
     day = models.TextField()
-
     def __unicode__(self):
         return self.day
 
 class rozklad(models.Model):
    pare_id = models.ForeignKey(pare)
    day_id = models.ForeignKey(day)
-   cource_id = models.ForeignKey(cource)
    cource = models.IntegerField(default=1)
    subject_id = models.ForeignKey(subject)
    teacher_id = models.ForeignKey(teacher)
    room_id = models.ForeignKey(room)
-
+   cathed_id = models.ForeignKey(cathed, default=1)
    def __unicode__(self):
-       return "%s %s %s" % (self.day_id, self.day_id, self.cource_id)
+       return "%s %s %s" % (self.day_id, self.day_id, self.cource)
 
 class type_foto(models.Model):
     header_foto = models.TextField()

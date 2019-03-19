@@ -28,19 +28,21 @@
    {% for r in roz %}
    <div class=" collapse" id="{{ r.day_id.day }}">
        <div class="card-body text-dark">
-       <div class = 'container row text-info'>
+           <div class="container">
+       <div class = 'row text-info'>
 
             <div class="col-3  text-info">
                 <p>No {{r.pare_id.id_pare}}</p>
                 <p>{{ r.pare_id.start_time}}</p>
                 <p>{{ r.pare_id.end_time }}</p>
             </div>
-           <div class="col-9 text-center">
+           <div class="col-7 text-center">
                <p>{{ r.subject_id.subject_name }}</p>
                <p>{{ r.teacher_id }}</p>
                <small class="text-muted pt-1">{{ r.room_id }}</small>
             </div>
         </div>
+       </div>
        </div>
    </div>
    {% endfor %}

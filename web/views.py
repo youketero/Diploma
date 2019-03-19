@@ -32,7 +32,7 @@ def form_user(request):
         cathed = request.POST.get("cathed")
         userform = method_roz()
         roz1 = day.objects.all()
-        roz = rozklad.objects.filter(cource_id__cource_id=cource, cource_id__cathed_name__cathed_name=cathed).order_by(
+        roz = rozklad.objects.filter(cource=cource, cathed_id__cathed_name=cathed).order_by(
             'pare_id_id')
         return render(request, 'web/formm.html', locals())
     else:
