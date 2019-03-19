@@ -1,0 +1,113 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <script>
+        function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+        function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <img src="{% static  "web/static/img/nochnoj_gorod_ogni_goroda_vid_sverhu_137133_1280x960.jpg" %}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <img src="{% static   "web/static/img/moon-hill-natural-bridge-in-china.jpg" %}" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <img src="{% static  "web/static/img/ozero_sneg_gory_137141_1280x960.jpg" %}" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <img src="{% static  "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+      </div>
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+<div>
+    <div class="mySlides">
+      <div class="numbertext1">1 / 4</div>
+      <img src="{% static  "web/static/img/nochnoj_gorod_ogni_goroda_vid_sverhu_137133_1280x960.jpg" %}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext1">2 / 4</div>
+      <img src="{% static  "web/static/img/moon-hill-natural-bridge-in-china.jpg" %}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext1">3 / 4</div>
+      <img src="{% static  "web/static/img/ozero_sneg_gory_137141_1280x960.jpg" %}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext1">4 / 4</div>
+      <img src="{% static  "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+    <div class="caption-container">
+      <p id="caption"></p>
+
+    <div class="row">
+        <div class="col-3 cm">
+          <img class="demo cursor pl-1" src="{% static  "web/static/img/nochnoj_gorod_ogni_goroda_vid_sverhu_137133_1280x960.jpg" %}" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+        </div>
+        <div class="col-3 cm">
+          <img class="demo cursor" src="{% static  "web/static/img/moon-hill-natural-bridge-in-china.jpg" %}" style="width:100%" onclick="currentSlide(2)" alt="Snow">
+        </div>
+        <div class="col-3 cm">
+          <img class="demo cursor" src="{% static  "web/static/img/ozero_sneg_gory_137141_1280x960.jpg" %}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+        </div>
+        <div class="col-3 cm">
+          <img class="demo cursor" src="{% static  "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -4,6 +4,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto:500');
 
 :root {
   --blue: #007bff;
@@ -368,7 +369,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 1rem;
-  font-family: 'Verdana', sans-serif;
+  font-family: Montesserat, sans-serif;
   font-weight: 700;
   line-height: 1;
   color: inherit;
@@ -3980,6 +3981,7 @@ input[type="button"].btn-block {
   justify-content: space-between;
   padding: 0.5rem 1rem;
   margin-bottom: 2rem;
+  transition: top 0.3s;
 }
 
 .navbar > .container,
@@ -4488,6 +4490,7 @@ margin-top: 1rem;
 .card-img {
   width: 100%;
   border-radius: calc(0.25rem - 1px);
+
 }
 
 .card-img-top {
@@ -4495,6 +4498,7 @@ margin-top: 1rem;
   border-top-left-radius: calc(1rem - 10px);
   border-top-right-radius: calc(1rem - 10px);
   box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  background-size: cover;
 }
 
 .card-img-bottom {
@@ -9044,4 +9048,36 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */
+
+.r {
+  color: #00ACC1;
+}
+.r:hover{
+  color: #80bdff;
+}
+
+.e {
+  color: #004085;
+}
+
+.e:hover {
+  color: #80bdff;
+}
+
+.t {
+  color: #0c5460;
+}
+
+.t:hover {
+  color: #80bdff;
+}/*# sourceMappingURL=bootstrap.css.map */
+
+.asd{
+  background-color: inherit;}
+.asd:hover {
+  background-color: #80bdff;
+}
+
+.card-img:hover{
+  opacity: 0.8;
+}

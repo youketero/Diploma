@@ -6,70 +6,64 @@
 {% endblock %}
 
 {% block content %}
-    <div style="margin-top: -2rem">
-        <div class="w-100 h-25" style="background-color: #0c5460;">
-        <img class="d-block w-100" style="opacity: 0.6" src="{% static  "web/static/img/br9.jpg" %}" alt="">
-        </div>
-    </div>
-    <div class="container col text-center pt-2">
-    <div class = 'row'>
-        <div class="col-3 p-5">
-            <a href="boot.html" class="text-dark d-block pb-3"> <i class=" fab fa-twitter fa-2x"></i></a>
-        </div>
-        <div class="col-9 p-2">
-            <p class="text-dark font-weight-bold text-left ">Студенту</p>
-            <p class="text-left  font-weight-lighter"> fjlsdfj asjflsdajf salfsadf asdhfas fhs fhsa fas fkshad fhasfhiwewerwo wer woe rfsld fsf sfl sdlfj slf slf sfsfjs</p>
+
+<script>function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";}
+</script>
+
+
+    <div class="container text-center pt-3">
+    <div class="row ">
+        <div class="col-12 col-lg-4 pt-1">
+            <a href="boot.html" class="text-black "> <i class="fas fa-university fa-2x text-secondary" ></i></a>
+            <p class="text-dark text-center font-weight-bold text-left pt-2">Про універститет</p>
+            <p class="text-center"> fjlsdfj asjflsdajf salfsadf asdhfas fhs fhsa fas fkshad fhasfhiwewerwo wer woe rfsld fsf sfl sdlfj slf slf sfsfjs</p>
+         </div>
+        <div class="col-12 col-lg-4  pt-1">
+            <a href="boot.html" class="text-black "><i class="fas fa-graduation-cap fa-2x text-info"></i></a>
+            <p class="text-dark text-center font-weight-bold text-left pt-2">Абітурієнту</p>
+            <p class="text-center"> fjlsdfj asjflsdajf salfsadf asdhfas fhs fhsa fas fkshad fhasfhiwewerwo wer woe rfsld fsf sfl sdlfj slf slf sfsfjs</p>
+         </div>
+        <div class="col-12 col-lg-4 pt-1">
+            <a href="boot.html" class="text-black "><i class="fas fa-book fa-2x text-danger"></i></a>
+            <p class="text-dark text-center font-weight-bold text-left pt-2 ">Студенту</p>
+            <p class="text-center"> fjlsdfj asjflsdajf salfsadf asdhfas fhs fhsa fas fkshad fhasfhiwewerwo wer woe rfsld fsf sfl sdlfj slf slf sfsfjs</p>
          </div>
     </div>
-    <div class = 'row'>
-        <div class="col-3 p-5">
-            <a href="boot.html" class="text-dark d-block pb-3"> <i class=" fab fa-twitter fa-2x"></i></a>
-        </div>
-        <div class="col-9 p-2">
-            <p class="text-danger  font-weight-bold text-left ">Студенту</p>
-            <p class="text-left "> fjlsdfj asjflsdajf salfsadf asdhfas fhs fhsa fas fkshad fhasfhiwewerwo wer woe rfsld fsf sfl sdlfj slf slf sfsfjs</p>
-         </div>
     </div>
-        <div class = 'row'>
-            <div class="col-3 p-5">
-                <a href="boot.html" class="text-dark  d-block pb-3"> <i class=" fab fa-twitter fa-2x"></i></a>
-            </div>
-        <div class="col-9 p-2">
-            <p class="text-danger  font-weight-bold text-left ">Абітурієнту</p>
-        <p class="text-left "> fjlsdfj asjflsdajf salfsadf asdhfas fhs fhsa fas fkshad fhasfhiwewerwo wer woe rfsld fsf sfl sdlfj slf slf sfsfjs</p>
 
-        </div>
-    </div>
-    </div>
-    </div>
-    <div class="container pl-3"><h3>Новини</h3></div>
+    <div class="container"><h3 class="container">Новини</h3></div>
 
-    <div class=" container card-deck bg-light  mt-4 text-left">
-        <div class="row ">
+    <div class="container mt-3 mb-2">
+    <div class="card-deck  text-left">
     {% for article in articles %}
-        <div class="col-6 col-lg-3">
-        <div class="card bg-light p-1">
-            <img class="card-img" src="{{ article.image.url }}" width="100%" height="150" alt="Card image cap">
-            <div ><a href="{% url 'article' article.id %}"> <h4 class="pl-3 pt-1">{{ article.title }}</h4></a></div>
+        <div class="col-xs-12 col-lg-4 col-md-6 col-10 offset-lg-0 offset-md-0 offset-1">
+        <div class="card bg-light mt-3 ">
+            <img class="card-img" src="{{ article.image.url }}" width="100%" height="250" alt="Card image cap">
+            <div ><a href="{% url 'article' article.id %}"> <h4 class="container pt-2">{{ article.title }}</h4></a></div>
                 <div class="card-body">
                     <p>{{ article.short_text }}</p>
                     <div class= "text-dark ">
                         <p class=" d-inline">  <small class="text-muted">{{ article.date }}</small></p>
-                        <a href="boot.html" class="text-dark d-inline "> <i class=" fab fa-twitter"></i></a>
-                        <a href="boot.html" class="text-dark d-inline pl-1"> <i class=" fab fa-twitter"></i></a>
-                        <a href="boot.html" class="text-dark d-inline pl-1"> <i class=" fab fa-twitter"></i></a>
+                        <a href="boot.html" class=" d-inline pl-2 float-right r"> <i class=" fab fa-twitter"></i></a>
+                        <a href="boot.html" class="  d-inline pl-2 float-right t" > <i class="fab fa-vk "></i></a>
+                         <a href="https://www.facebook.com/www.geol.univ.kiev.ua/" class=" d-inline pl-2 float-right t"> <i class="fab fa-facebook-f "></i></a>
 
                     </div>
                 </div>
             </div>
         </div>
+
     {% endfor %}
         </div>
     </div>
-
-
-<div class="container pl-3"><h3>Галерея</h3></div>
-<div id="carouselExampleFade" class="carousel slide carousel-fade mt-4" data-ride="carousel">
+<div class="container mt-4 mb-5"><h3 class="container">Галерея</h3></div>
+<!--<div class=" w-100 h-25">
+    <div id="carouselExampleFade" class="carousel slide  mt-4" data-ride="carousel">
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -96,49 +90,70 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+-->
+    <div class="container">
+    <div class="row p-1">
+  <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2 column1">
+    <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Nature" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-2  col-xs-2 column1">
+    <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="col-lg-3  col-md-3 col-sm-2  col-xs-2 column1">
+    <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="col-lg-3  col-md-3 col-sm-2  col-xs-2 column1">
+    <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+   </div>
+<div class="container">
+    <div class="container2">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img src="home.html" id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+</div>
+ <div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 ">
+            <div class="container mt-4 mb-4"><h3>Анонси та конференції</h3></div>
+			<ul class="timeline1">
+				<li>
+					<a target="_blank" href="#">Конференція 1</a>
+					<p href="#" class="float-right">21 March, 2014</p>
+					<p class="mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
+				</li>
+				<li>
+					<a href="#">Конференція 2</a>
+					<p href="#" class="float-right">4 March, 2014</p>
+					<p class="mt-1">Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+				</li>
+				<li>
+					<a href="#">Конференція 3</a>
+					<p href="#" class="float-right">1 April, 2014</p>
+					<p class="mt-1">Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio, tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor nibh...</p>
+				</li>
+			</ul>
+            <div class="container mt-4 mb-4"><a href={% url "anonce" %} >докладніше</a></div>
+		</div>
+	</div>
+</div>
 
-<div class="container pl-3 pt-3 pb-3 text-justify"><h3>Кафедри</h3></div>
-
-<div class=" container  bg-light  mt-4  mb-4 padding">
+<div class="container pl-3 pt-3 pb-3"><h3 class="container">Наші партнери</h3></div>
+<div class="container">
 <div class="row">
-  <div class="col-4">
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#inf" role="tab" aria-controls="home">Геологія</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#geo" role="tab" aria-controls="profile">Геологія</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#fiz" role="tab" aria-controls="messages">Геологія</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#mine" role="tab" aria-controls="settings">Геологія</a>
-    </div>
-  </div>
-  <div class="col-8">
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="inf" role="tabpanel" aria-labelledby="list-home-list">Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat tempor. Voluptate deserunt sit sunt nisi aliqua fugiat proident ea ut. Mollit voluptate reprehenderit occaecat nisi ad non minim tempor sunt voluptate consectetur exercitation id ut nulla. Ea et fugiat aliquip nostrud sunt incididunt consectetur culpa aliquip eiusmod dolor. Anim ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
-      <div class="tab-pane fade" id="geo" role="tabpanel" aria-labelledby="list-profile-list">Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat tempor. Voluptate deserunt sit sunt nisi aliqua fugiat proident ea ut. Mollit voluptate reprehenderit occaecat nisi ad non minim tempor sunt voluptate consectetur exercitation id ut nulla. Ea et fugiat aliquip nostrud sunt incididunt consectetur culpa aliquip eiusmod dolor. Anim ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
-      <div class="tab-pane fade" id="fiz" role="tabpanel" aria-labelledby="list-messages-list">Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat tempor. Voluptate deserunt sit sunt nisi aliqua fugiat proident ea ut. Mollit voluptate reprehenderit occaecat nisi ad non minim tempor sunt voluptate consectetur exercitation id ut nulla. Ea et fugiat aliquip nostrud sunt incididunt consectetur culpa aliquip eiusmod dolor. Anim ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
-      <div class="tab-pane fade" id="mine" role="tabpanel" aria-labelledby="list-settings-list">Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat tempor. Voluptate deserunt sit sunt nisi aliqua fugiat proident ea ut. Mollit voluptate reprehenderit occaecat nisi ad non minim tempor sunt voluptate consectetur exercitation id ut nulla. Ea et fugiat aliquip nostrud sunt incididunt consectetur culpa aliquip eiusmod dolor. Anim ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
-    </div>
-  </div>
+        <div class="col-4  col-lg-2 mt-4"><img class="w-100 h-100 align-content-center" src="{% static "img/1200px-JetBrains_Logo_2016.svg.png" %}"></div>
+        <div class="col-4 col-lg-2 mt-4"><img class=" w-100 h-50 align-content-between" style="height: 30px" src="{% static "img/Shearwater-logo-e1460447277217.png" %}"></div>
+        <div class="col-4  col-lg-2 mt-4"><img class="w-100 h-50 align-content-between" src="{% static "img/schlumberger_510x190.png" %}"></div>
+         <div class="col-4  col-lg-2 mt-4"><img class="w-100 h-50 align-content-between" src="{% static "img/tvis.png" %}"></div>
+         <div class="col-4  col-lg-2 mt-4"><img class="w-100 h-50 align-content-between" src="{% static "img/333---w-400_h-200_zc-1_q-60.png" %}"></div>
+         <div class="col-4  col-lg-2 mt-4"><img class="w-100 h-50 align-content-between" src="{% static "img/mid.png" %}"></div>
 </div>
 </div>
 
-<div class="container pl-3 pt-3 pb-3"><h3>Наші партнери</h3></div>
 
-<div class="row container">
-        <div class="col-4  col-lg-2 mt-4"><img class="w-100 h-25 align-content-between" src="{% static "img/schlumberger_510x190.png" %}"></div>
-        <div class="col-8 col-lg-3 mb-4 text-justify">
-            <h5 class="text-danger">Schlumberger</h5>
-            <p>Одна з провідних світових сервісних нафтогазових компаній, яка з 2005 року надає геологічному факультету гранти на програмне забезпечення Petrel, PetroMod.</p>
-        </div>
-        <div class="col-8 mb-4 col-lg-2 text-justify">
-            <h5 class="text-danger">JetBrains</h5>
-            <p>JetBrains (раніше IntelliJ) – компанія з розробки програмного забезпечення, чиї інструменти орієнтовані на розробників програмного забезпечення і менеджерів проектів.</p>
-        </div>
-        <div class="col-4  col-lg-2 mt-4"><img class="w-100 h-50 align-content-between" src="{% static "img/1200px-JetBrains_Logo_2016.svg.png" %}"></div>
-        <div class="col-4 mt-5"><img class=" w-100 align-content-between" style="height: 30px" src="{% static "img/Shearwater-logo-e1460447277217.png" %}"></div>
-        <div class="col-8 text-justify">
-            <h5 class="text-danger">Schlumberger</h5>
-            <p>Одна з провідних світових сервісних нафтогазових компаній, яка з 2005 року надає геологічному факультету гранти на програмне забезпечення Petrel, PetroMod, Merak, TechLog.</p>
-        </div>
-    </div>
-</div>
+
 
 {% endblock %}

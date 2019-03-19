@@ -6,9 +6,6 @@
 {% endblock %}
 
 {% block content %}
-    <div id="preloader">
-  <div id="loader"></div>
-</div>
 <div style = 'padding-bottom: 10rem'>
      <form method="POST">
      {% csrf_token %}
@@ -34,7 +31,7 @@
        <div class = 'container row text-info'>
 
             <div class="col-3  text-info">
-                <p>No_{{r.pare_id_id}}</p>
+                <p>No {{r.pare_id.id_pare}}</p>
                 <p>{{ r.pare_id.start_time}}</p>
                 <p>{{ r.pare_id.end_time }}</p>
             </div>
