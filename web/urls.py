@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^galery/$', web.views.galery,name='galery'),
     url(r'^galery/(?P<id>\w+)/$', web.views.show_galery, name = "g"),
     url(r'^partner/$', web.views.partneru, name="partner"),
-    url(r'^hyper_link/$', web.views.hyper_link, name = "usefull_link")
+    url(r'^hyper_link/$', web.views.hyper_link, name = "usefull_link"),
+    url(r'^structure/(?P<cathed_name>\w+)/$', web.views.cathed_b, name = 'cathed_name')
 ]
 

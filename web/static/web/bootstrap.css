@@ -90,8 +90,8 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-family: Roboto, Verdana, Arial, sans-serif;
-  font-style: italic;
+  font-family:  Arial, sans-serif;
+
 }
 
 abbr[title],
@@ -3882,7 +3882,7 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  background-color: #2979FF;
+  background-color: white;
 }
 
 .nav-link {
@@ -3892,8 +3892,8 @@ input[type="button"].btn-block {
 
 .nav-link:hover, .nav-link:focus {
   text-decoration: inherit;
-  color: #0091EA;
-  
+  color: white;
+
 }
 
 .nav-link.disabled {
@@ -4490,6 +4490,7 @@ margin-top: 1rem;
 .card-img {
   width: 100%;
   border-radius: calc(0.25rem - 1px);
+  transition: 0.3s;
 
 }
 
@@ -9079,5 +9080,5 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .card-img:hover{
-  opacity: 0.8;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

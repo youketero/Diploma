@@ -44,9 +44,9 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
 </script>
-{% for i in gallery1%}
+{% for foto in gallery1%}
     <div class="container">
-        <a href="{% url 'g' i.id %}">{{ i.header_foto }}</a>
+        <a href="{% url 'g' foto.id %}">{{ foto.header_foto }}</a>
      </div>
 {% endfor %}
 

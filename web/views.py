@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-
+from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 # Create your views here.
 from web.models import Articles, rozklad, day, anonce, cathed, gallery, partner, hyper_link_usefull, type_foto
 from web.forms import method_roz
@@ -26,18 +26,6 @@ def show_articles(request, article_id):
     return render(request, 'web/article.html', locals())
 
 
-def form_user(request):
-    if request.method == 'POST':
-        cource = request.POST.get("cource")
-        cathed = request.POST.get("cathed")
-        userform = method_roz()
-        roz1 = day.objects.all()
-        roz = rozklad.objects.filter(cource=cource, cathed_id__cathed_name=cathed).order_by(
-            'pare_id_id')
-        return render(request, 'web/formm.html', locals())
-    else:
-        userform = method_roz()
-        return render(request, 'web/formm.html', {"form": userform})
 
 
 def anonce1(request):
@@ -56,7 +44,15 @@ def library(request):
 
 def news(request):
     articles = Articles.objects.all()
-    return render(request, "web/news.html", locals())
+    paginator = Paginator(articles,5)
+    page = request.GET.get("page")
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
+    return render(request, "web/news.html", {"articles":articles })
 
 
 def galery(request):
@@ -71,4 +67,22 @@ def hyper_link(request):
     return render(request, 'web/hyper_link.html', locals())
 
 def partneru(request):
+    partner_each = partner.objects.all()
     return render(request, 'web/partner.html', locals())
+
+def cathed_b(request,cathed_name):
+    cathed_each = cathed.objects.filter(cathed_name = cathed_name)
+    return  render(request, "web/cathed.html", locals())
+
+def form_user(request):
+    if request.method == 'POST':
+        cource = request.POST.get("cource")
+        cathed = request.POST.get("cathed")
+        userform = method_roz()
+        roz1 = day.objects.all()
+        roz = rozklad.objects.filter(cource=cource, cathed_id=cathed).order_by(
+            'pare_id_id')
+        return render(request, 'web/formm.html', locals())
+    else:
+        userform = method_roz()
+        return render(request, 'web/formm.html', {"form": userform})

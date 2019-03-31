@@ -1,11 +1,21 @@
 {% extends "web/base.html" %}
-
+{% load staticfiles %}
 
 {% block title %}
-    Partner
+    Наші партнери
 {% endblock %}
 
 {% block content %}
-
-ljjljlkjl
+    <div class="container">
+       <div class="row">
+            {% for partner in partner_each %}
+                <div class="col-10 col-sm-10 col-lg-3 col-md-5 mt-3 offset-1 offset-lg-0 offset-md-0 ">
+                    <a href="{{ partner.hyper_link_site }}"><img src="{{ partner.foto_logo.url }}" class="w-50 "  alt="..."></a>
+                </div>
+                <div class="col-10 col-sm-10 col-lg-9 col-md-7 mt-3 offset-1 offset-lg-0 offset-md-0">
+                    <p class="text-justify mt-2">{{ partner.short_information }}</p>
+                </div>
+            {% endfor %}
+       </div>
+    </div>
 {% endblock %}

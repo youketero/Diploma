@@ -43,20 +43,15 @@ function currentSlide(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
 </script>
+
+
     <div class="container">
     <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <img src="{% static  "web/static/img/nochnoj_gorod_ogni_goroda_vid_sverhu_137133_1280x960.jpg" %}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        {% for foto in show_galery1 %}
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6 pb-4">
+        <img src="{{ foto.foto.url}}" style="width:100%" onclick="openModal();currentSlide({{ foto.foto_id }})" class="hover-shadow cursor">
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <img src="{% static   "web/static/img/moon-hill-natural-bridge-in-china.jpg" %}" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <img src="{% static  "web/static/img/ozero_sneg_gory_137141_1280x960.jpg" %}" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <img src="{% static  "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-      </div>
+        {% endfor %}
     </div>
 </div>
 

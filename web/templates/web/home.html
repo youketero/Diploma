@@ -36,7 +36,7 @@
     </div>
     </div>
 
-    <div class="container"><h3 class="container">Новини</h3></div>
+    <div class="container mt-4 "><h3 class="container">Новини</h3></div>
 
     <div class="container mt-3 mb-2">
     <div class="card-deck  text-left">
@@ -44,7 +44,7 @@
         <div class="col-xs-12 col-lg-4 col-md-6 col-10 offset-lg-0 offset-md-0 offset-1">
         <div class="card bg-light mt-3 ">
             <img class="card-img" src="{{ article.image.url }}" width="100%" height="250" alt="Card image cap">
-            <div ><a href="{% url 'article' article.id %}"> <h4 class="container pt-2">{{ article.title }}</h4></a></div>
+            <div ><a href="{% url 'article' article.id %}"> <h4 class="pl-3 pt-3">{{ article.title }}</h4></a></div>
                 <div class="card-body">
                     <p>{{ article.short_text }}</p>
                     <div class= "text-dark ">
@@ -61,7 +61,7 @@
     {% endfor %}
         </div>
     </div>
-<div class="container mt-4 mb-5"><h3 class="container">Галерея</h3></div>
+<div class="container mt-5 mb-3"><h3 class="container">Галерея</h3></div>
 <!--<div class=" w-100 h-25">
     <div id="carouselExampleFade" class="carousel slide  mt-4" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -94,20 +94,22 @@
 -->
     <div class="container">
     <div class="row p-1">
-  <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2 column1">
+  <div class=" column1">
     <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Nature" style="width:100%" onclick="myFunction(this);">
   </div>
-  <div class="col-lg-3 col-md-3 col-sm-2  col-xs-2 column1">
+  <div class=" column1">
     <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
   </div>
-  <div class="col-lg-3  col-md-3 col-sm-2  col-xs-2 column1">
+  <div class=" column1">
     <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Mountains" style="width:100%" onclick="myFunction(this);">
   </div>
-  <div class="col-lg-3  col-md-3 col-sm-2  col-xs-2 column1">
+  <div class="column1">
     <img src="{% static  "web/static/img/hanyijie_nebo_dekoratsii_korabl_anime_art_104162_1280x960_F20RE8Z.jpg" %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
   </div>
 </div>
+
    </div>
+     <div class="container mt-4 mb-4 pl-4"><a href={% url "galery" %} >у галерею</a></div>
 <div class="container">
     <div class="container2">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>

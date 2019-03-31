@@ -39,10 +39,13 @@ class subject(models.Model):
         return "%s" %(self.subject_name)
 class cathed(models.Model):
     cathed_name = models.TextField(max_length=50)
+    cathed_name_rus = models.TextField(max_length=100,default="write")
     history = models.TextField()
     foto = models.ImageField(upload_to='web/static/img')
+    number = models.IntegerField(default=0)
+    email = models.TextField(default="http")
 
-    def __str__(self):
+    def __unicode__(self):
         return "%s %s %s" %(self.cathed_name,self.history, self.foto)
 
 class pare(models.Model):
@@ -83,7 +86,7 @@ class rozklad(models.Model):
    subject_id = models.ForeignKey(subject)
    teacher_id = models.ForeignKey(teacher)
    room_id = models.ForeignKey(room)
-   cathed_id = models.ForeignKey(cathed, default=1)
+   cathed_id = models.TextField(default='geology')
    def __unicode__(self):
        return "%s %s %s" % (self.day_id, self.day_id, self.cource)
 
@@ -104,6 +107,7 @@ class partner(models.Model):
     name = models.TextField()
     short_information = models.TextField()
     foto_logo = models.ImageField(upload_to='web/static/img')
+    hyper_link_site = models.TextField(default="http")
 
 class hyper_link_usefull(models.Model):
     name = models.TextField()

@@ -7,5 +7,12 @@
 
 {% block content %}
 
-ljjljlkjl
+    <div class="container">
+        <h4 class="pl-4">Structure and catheds</h4>
+<ul class="list-group list-group-flush">
+    {% for i in cathed2 %}
+        <li class="list-group-item"><a href={% url "cathed_name" i.cathed_name %}>{{ i.cathed_name_rus }}</a></li>
+    {% endfor %}
+</ul>
+    </div>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from web.models import Articles,rozklad, pare, subject,day,teacher,cathed,room,gallery,type_foto
+from web.models import Articles,rozklad, pare, subject,day,teacher,cathed,room,gallery,type_foto,partner
 
 class article_fil(admin.ModelAdmin):
     list_display = ["title",'date']
@@ -27,3 +27,4 @@ admin.site.register(cathed)
 admin.site.register(room)
 admin.site.register(gallery)
 admin.site.register(type_foto)
+admin.site.register(partner)
