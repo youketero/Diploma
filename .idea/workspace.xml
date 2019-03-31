@@ -5,35 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59bcb7ed-4d9a-4b76-a2f2-01f37c09cf20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/static/web/static/img/1200px-JetBrains_Logo_2016.svg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/static/web/static/img/schlumberger_510x190_Sn7LNFj.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/static/web/static/img/tnc_56094809_preview_cropped_6CIYbeW.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/static/web/static/img/tnc_56094809_preview_cropped_Fsipfrc.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/static/web/static/img/tnc_56094809_preview_cropped_Vmg2XWH.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/static/web/static/img/tnc_56094809_preview_cropped_syu482M.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/migrations/0013_partner_hyper_link_site.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/migrations/0014_auto_20190330_0129.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/migrations/0015_cathed_cathed_name_rus.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/migrations/0016_auto_20190331_1634.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/templates/web/cathed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/37b02127-f3a8-469d-8155-cafa1a5ffb3d.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/37b02127-f3a8-469d-8155-cafa1a5ffb3d.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin.py" afterPath="$PROJECT_DIR$/web/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/models.py" afterPath="$PROJECT_DIR$/web/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/static/web/app.css" afterPath="$PROJECT_DIR$/web/static/web/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/static/web/bootstrap.css" afterPath="$PROJECT_DIR$/web/static/web/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/base.html" afterPath="$PROJECT_DIR$/web/templates/web/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/formm.html" afterPath="$PROJECT_DIR$/web/templates/web/formm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/galery_type.html" afterPath="$PROJECT_DIR$/web/templates/web/galery_type.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/gallery.html" afterPath="$PROJECT_DIR$/web/templates/web/gallery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/home.html" afterPath="$PROJECT_DIR$/web/templates/web/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/news.html" afterPath="$PROJECT_DIR$/web/templates/web/news.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/partner.html" afterPath="$PROJECT_DIR$/web/templates/web/partner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/web/structure.html" afterPath="$PROJECT_DIR$/web/templates/web/structure.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/urls.py" afterPath="$PROJECT_DIR$/web/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/views.py" afterPath="$PROJECT_DIR$/web/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/settings.py" afterPath="$PROJECT_DIR$/website/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -425,7 +397,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../bootstrap-3.3.7-dist/DjangoYOU" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -888,7 +860,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553025018099</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Create media borders for header image. Also createdd prototype of structure university section">
+      <created>1554049508312</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1554049508312</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -912,13 +891,13 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27760968" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27760968" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.49394855" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31336406" sideWeight="0.5665658" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.49092284" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32565284" sideWeight="0.45990923" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31643626" sideWeight="0.4334342" order="2" side_tool="false" content_ui="tabs" x="5" y="294" width="1310" height="216" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31643626" sideWeight="0.4334342" order="2" side_tool="false" content_ui="tabs" x="5" y="294" width="1310" height="216" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.4644478" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -980,7 +959,8 @@
     <MESSAGE value="create page for students pares and create post form&#10;&#10;&#10;" />
     <MESSAGE value="add new view. finish to create page for university subject." />
     <MESSAGE value="create separate gallery and navbar. Also create news tab" />
-    <option name="LAST_COMMIT_MESSAGE" value="create separate gallery and navbar. Also create news tab" />
+    <MESSAGE value="Create media borders for header image. Also createdd prototype of structure university section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create media borders for header image. Also createdd prototype of structure university section" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
