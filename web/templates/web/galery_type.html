@@ -58,51 +58,29 @@ function currentSlide(n) {
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModal()">&times;</span>
   <div class="modal-content">
-<div>
-    <div class="mySlides">
-      <div class="numbertext1">1 / 4</div>
-      <img src="{% static  "web/static/img/nochnoj_gorod_ogni_goroda_vid_sverhu_137133_1280x960.jpg" %}" style="width:100%">
-    </div>
+    <div>
+    {% for foto1 in show_galery1 %}
+        <div class="mySlides">
+          <img src="{{ foto1.foto.url}}" style="width:100%">
+        </div>
+           {% endfor %}
 
-    <div class="mySlides">
-      <div class="numbertext1">2 / 4</div>
-      <img src="{% static  "web/static/img/moon-hill-natural-bridge-in-china.jpg" %}" style="width:100%">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-
-    <div class="mySlides">
-      <div class="numbertext1">3 / 4</div>
-      <img src="{% static  "web/static/img/ozero_sneg_gory_137141_1280x960.jpg" %}" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext1">4 / 4</div>
-      <img src="{% static  "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" style="width:100%">
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
     <div class="caption-container">
       <p id="caption"></p>
 
     <div class="row">
-        <div class="col-3 cm">
-          <img class="demo cursor pl-1" src="{% static  "web/static/img/nochnoj_gorod_ogni_goroda_vid_sverhu_137133_1280x960.jpg" %}" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
-        </div>
-        <div class="col-3 cm">
-          <img class="demo cursor" src="{% static  "web/static/img/moon-hill-natural-bridge-in-china.jpg" %}" style="width:100%" onclick="currentSlide(2)" alt="Snow">
-        </div>
-        <div class="col-3 cm">
-          <img class="demo cursor" src="{% static  "web/static/img/ozero_sneg_gory_137141_1280x960.jpg" %}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-        </div>
-        <div class="col-3 cm">
-          <img class="demo cursor" src="{% static  "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-        </div>
+        {% for foto2 in show_galery1 %}
+            <div class="col-3 cm">
+              <img class="demo cursor pl-1" src="{{ foto2.foto.url}}" style="width:100%" onclick="currentSlide({{ foto2.foto_id }})" alt="Nature and sunrise">
+            </div>
+         {% endfor %}
       </div>
     </div>
   </div>
 </div>
-
 
 
 {% endblock %}

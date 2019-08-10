@@ -7,7 +7,6 @@ class Articles(models.Model):
     title = models.CharField(max_length=20000)
     text = models.TextField()
     date = models.DateField()
-    user = models.ForeignKey(User)
 
     class Meta:
         verbose_name = 'Article'
@@ -16,7 +15,7 @@ class Articles(models.Model):
     def __unicode__(self):
         return "%s %s %s"   % (self.date,self.title,self.image)
     def short_text(self):
-        if self.text>100:
+        if len(self.text)>100:
             return self.text[:100]+'...'
         else:
             return self.text
@@ -26,7 +25,7 @@ class anonce(models.Model):
     title = models.CharField(max_length=20000)
     text = models.TextField()
     date = models.DateField()
-    user = models.ForeignKey(User)
+
 
 
 
@@ -37,6 +36,8 @@ class subject(models.Model):
 
     def __unicode__(self):
         return "%s" %(self.subject_name)
+
+
 class cathed(models.Model):
     cathed_name = models.TextField(max_length=50)
     cathed_name_rus = models.TextField(max_length=100,default="write")
@@ -58,11 +59,13 @@ class pare(models.Model):
 
 
 class teacher(models.Model):
-    name = models.TextField()
-    first_name = models.TextField()
+    name = models.TextField(default='name')
+    first_name = models.TextField(default="sername")
     short_history = models.TextField(default='history')
-    cathed_id = models.ForeignKey(cathed)
-
+    cathed_id = models.ForeignKey(cathed,on_delete=models.CASCADE)
+    phone_number = models.IntegerField(default=0)
+    monography = models.TextField(default="monography")
+    step = models.TextField(default="doctor")
 
     def __unicode__(self):
         return "%s %s" % (self.name,self.first_name)
@@ -80,12 +83,12 @@ class day(models.Model):
         return self.day
 
 class rozklad(models.Model):
-   pare_id = models.ForeignKey(pare)
-   day_id = models.ForeignKey(day)
+   pare_id = models.ForeignKey(pare,on_delete=models.CASCADE)
+   day_id = models.ForeignKey(day,on_delete=models.CASCADE)
    cource = models.IntegerField(default=1)
-   subject_id = models.ForeignKey(subject)
-   teacher_id = models.ForeignKey(teacher)
-   room_id = models.ForeignKey(room)
+   subject_id = models.ForeignKey(subject,on_delete=models.CASCADE)
+   teacher_id = models.ForeignKey(teacher,on_delete=models.CASCADE)
+   room_id = models.ForeignKey(room,on_delete=models.CASCADE)
    cathed_id = models.TextField(default='geology')
    def __unicode__(self):
        return "%s %s %s" % (self.day_id, self.day_id, self.cource)
@@ -100,8 +103,10 @@ class type_foto(models.Model):
 class gallery(models.Model):
     foto = models.ImageField(upload_to='web/static/img')
     name_foto = models.TextField(default="name_foto")
-    header_id = models.ForeignKey(type_foto,default=1)
+    header_id = models.ForeignKey(type_foto,default=1,on_delete=models.CASCADE)
     foto_id = models.IntegerField(default=1)
+
+
 
 class partner(models.Model):
     name = models.TextField()

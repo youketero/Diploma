@@ -23,12 +23,7 @@
   </head>
 
 <body>
-    <div class="header-image-lg header-image-sm" >
-        <img class=" w-100" src="{% static "web/static/img/9x_media__1280__triple_horizontal__grand_canyon.jpg" %}">
-        <div class="container-center-lg container-center-sm">
-            <span class="text-cen-lg text-cen-sm ">Welcome to Geology institute</span>
-         </div>
-    </div>
+
     <nav class="navbar navbar-expand-lg navbar-light align-content-center" style="background-color: #0097A7 ; transition: top 0.3s;">
         <a class="navbar-brand" href={% url "home" %} ><img class="rounded-circle" src="{% static  "img/unnamed.jpg" %}" width="60" height="60"></a>
         <h1 class=" font-weight-normal mt-3 " style="font-size: 1rem">ННІ Інститут геології</h1>
@@ -37,10 +32,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ">
-            <li class="nav-item" >
-                <a class="nav-link" href={% url "home" %}> <i class="fas fa-home pr-2"></i>Головна </a>
-            </li>
-            <li class="dropdown-divider"></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="na" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"><i class="fas fa-university pr-1"></i>
                 Факультет
@@ -95,24 +86,24 @@
 </div>
 
 
-<footer class="pt-5">
-    <div class=" footer text-center p-2 " style =' color: #00ACC1 ; background-color: black; opacity: 0.7'>
-          <ul class="list-unstyled text-small">
-            <li class="d-inline pr-1"><a href="#">Журнал вісник</a></li>
-            <li class="d-inline p-1"><a  href="#">Сайт універстету</a></li>
-            <li class="d-inline p-1"><a   href="#">Сайт студпарламенту </a></li>
-          </ul>
-    </div>
+<footer class="p-2 mt-5 footerstyle">
 
-    <div class=" footer p-2  pb-4" style ='background-color: black; opacity: 0.7'>
+    <div class=" footer p-2 " >
         <div class="container col-xs-12 text-center">
-            <a href="https://t.me/studparlam" class="e"><i class="p-3 fab fa-telegram-plane " ></i></a>
-            <a href="boot.html" class="r"> <i class=" p-3 fab fa-twitter"></i></a>
-            <a href="boot.html" class="t" > <i class="p-3 fab fa-vk "></i></a>
-            <a href="https://www.facebook.com/www.geol.univ.kiev.ua/" class="t"> <i class="p-3 fab fa-facebook-f "></i></a>
+            <a href="https://t.me/studparlam" class="favr"><i class="p-3 fab fa-telegram-plane " ></i></a>
+            <a href="boot.html" class="favr"> <i class=" p-3 fab fa-twitter"></i></a>
+            <a href="boot.html" class="favr" > <i class="p-3 fab fa-vk "></i></a>
+            <a href="https://www.facebook.com/www.geol.univ.kiev.ua/" class="favr"> <i class="p-3 fab fa-facebook-f "></i></a>
         </div>
     </div>
-    <div class="footer  text-center p-3 col-xs-12" style ='color: #00ACC1; background-color: black; opacity: 0.8'>
+    <div class=" footer text-center p-2 ">
+          <ul class="list-unstyled text-small ">
+            <li class="d-inline pr-1"><a   style="color: white" href="#">ЖУРНАЛ ВІСНИК</a></li>
+            <li class="d-inline p-1"><a  style="color: white" href="#">САЙТ УНІВЕРСИТЕТУ</a></li>
+            <li class="d-inline p-1"><a   style="color: white" href="#">САЙТ СТУДПАРЛАМЕНТУ</a></li>
+          </ul>
+    </div>
+    <div class="footer  text-center pt-4 col-xs-12" >
        <p > 2018 Powered by bootsrap and Django</p>
     </div>
 </footer>

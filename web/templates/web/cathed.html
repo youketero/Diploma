@@ -22,33 +22,19 @@
             </ul>
             <div class="tab-content mt-4" id="myTabContent">
               <div class="tab-pane fade show active p-2" id="home" role="tabpanel" aria-labelledby="home-tab">
-                  <div class="col-12 col-lg-8 col-md-10 col-sm-10 offset-lg-2 offset-md-1 offset-sm-1"><img class="card-img  " src="{% static "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" alt="Card image cap"></div>
+                  <div class="col-12 col-lg-8 col-md-10 col-sm-10 offset-lg-2 offset-md-1 offset-sm-1"><img class="card-img w-100 " src="{% static "web/static/img/kraska_piatna_puzyri_137130_1280x960.jpg" %}" alt="Card image cap"></div>
                   <div class="col-12  mt-3"><p>jdfsadfjslajfasdfsafsasaghdsghasdghsa saf asdg as gals gasd galsd gs FWEP ASG HALDG AID ASUGOIH</p></div>
                   <div class="col-12"><hr><p>Контакти</p></div>
               </div>
               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
               <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-6"><img class="card-img" src="{% static "web/static/img/siluet_palmy_zakat_137145_1280x960.jpg" %}" alt="Card image cap">
-                          <p class="text-center mt-2">Завідувач кафедри</p>
-                          <p class="text-center mt-2">Такий сякий</p>
-                      </div>
+
                       <div class="row container">
-                         <div class="col-lg-3 col-md-4 col-sm-6 col-6"><img class="card-img" src="{% static "web/static/img/siluet_palmy_zakat_137145_1280x960.jpg" %}" alt="Card image cap">
-                          <p class="text-center mt-2">Доцент цікавих наук</p>
-                          <p class="text-center mt-2">Інший сякий</p>
+                         {% for i in teacher1 %}
+                       <div class="col-lg-3 col-md-4 col-sm-6 col-6"><img class="imageaa" src="{% static "web/static/img/asdfghjk.jpg" %}" alt="Card image cap">
+                              <div class="overlay container"><div class="textimage"><a href={% url "teacher" %}>{{ i.first_name }} {{ i.step }} {{ i.name }}</a></div></div>
                       </div>
-                          <div class="col-lg-3 col-md-4 col-sm-6 col-6"><img class="card-img" src="{% static "web/static/img/siluet_palmy_zakat_137145_1280x960.jpg" %}" alt="Card image cap">
-                          <p class="text-center mt-2">Доцент цікавих наук</p>
-                          <p class="text-center mt-2">Інший сякий</p>
-                      </div>
-                          <div class="col-lg-3 col-md-4 col-sm-6 col-6"><img class="card-img" src="{% static "web/static/img/siluet_palmy_zakat_137145_1280x960.jpg" %}" alt="Card image cap">
-                          <p class="text-center mt-2">Доцент цікавих наук</p>
-                          <p class="text-center mt-2">Інший сякий</p>
-                      </div>
-                          <div class="col-lg-3 col-md-4 col-sm-6 col-6"><img class="card-img" src="{% static "web/static/img/siluet_palmy_zakat_137145_1280x960.jpg" %}" alt="Card image cap">
-                          <p class="text-center mt-2">Доцент цікавих наук</p>
-                          <p class="text-center mt-2">Інший сякий</p>
-                      </div>
+                          {% endfor %}
                       </div>
 
               </div>

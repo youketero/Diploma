@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 # Create your views here.
-from web.models import Articles, rozklad, day, anonce, cathed, gallery, partner, hyper_link_usefull, type_foto
+from web.models import Articles, rozklad, day, anonce, cathed, gallery, partner, hyper_link_usefull, type_foto,teacher
 from web.forms import method_roz
 
 
@@ -59,8 +59,8 @@ def galery(request):
     gallery1 = type_foto.objects.all()
     return render(request, "web/gallery.html", locals())
 
-def show_galery(request, id):
-    show_galery1 = gallery.objects.filter(header_id = id)
+def show_galery(request, header_foto):
+    show_galery1 = gallery.objects.filter(header_id__header_foto = header_foto )
     return render(request, 'web/galery_type.html', locals())
 
 def hyper_link(request):
@@ -72,6 +72,7 @@ def partneru(request):
 
 def cathed_b(request,cathed_name):
     cathed_each = cathed.objects.filter(cathed_name = cathed_name)
+    teacher1 = teacher.objects.filter(cathed_id__cathed_name=cathed_name)
     return  render(request, "web/cathed.html", locals())
 
 def form_user(request):
@@ -86,3 +87,5 @@ def form_user(request):
     else:
         userform = method_roz()
         return render(request, 'web/formm.html', {"form": userform})
+def teachers(request):
+    return render(request,"web/teachers.html",locals())
