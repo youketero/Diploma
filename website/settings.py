@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "website",
+        'USER':"youkio",
+        'PASSWORD':'718397',
+        'HOST':'127.0.0.1',
+        'PORT':'5432'
     }
 }
 
@@ -121,5 +125,6 @@ TIME_FORMAT = 'H:i'
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/web/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'web', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+MEDIA_ROOT = os.path.join(BASE_DIR,'web')
 MEDIA_URL = '/img/'
