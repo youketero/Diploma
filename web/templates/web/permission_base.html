@@ -1,0 +1,37 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+{% load auth_extras %}
+
+
+{% block content %}
+     {% if user.is_authenticated and request.user|has_group:"active_user" %}
+    {% block permission %}
+
+    {% endblock %}
+
+     {% else %}
+
+    {% endif %}
+
+
+<script>
+      new Glide('#glide2', {
+            type: 'carousel',
+            perView: 5,
+            autoplay: 3000,
+            breakpoints: {
+                1000: {
+                    perView: 3
+                },
+
+                800: {
+                    perView: 2
+                },
+                600: {
+                    perView: 1
+                }
+            }
+        }).mount();
+      </script>
+
+{% endblock %}

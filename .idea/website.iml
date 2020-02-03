@@ -21,12 +21,23 @@
     <orderEntry type="library" name="popper" level="application" />
     <orderEntry type="library" name="jquery-3.3.1.slim" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="picturefill" level="application" />
+    <orderEntry type="library" name="lg-fullscreen" level="application" />
+    <orderEntry type="library" name="lg-hash" level="application" />
+    <orderEntry type="library" name="lightgallery" level="application" />
+    <orderEntry type="library" name="lg-share" level="application" />
+    <orderEntry type="library" name="lg-zoom" level="application" />
+    <orderEntry type="library" name="lg-autoplay" level="application" />
+    <orderEntry type="library" name="lg-pager" level="application" />
+    <orderEntry type="library" name="widgets" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/web/templates" />
+        <option value="$MODULE_DIR$/login/templates" />
+        <option value="$MODULE_DIR$/base/templates" />
       </list>
     </option>
   </component>

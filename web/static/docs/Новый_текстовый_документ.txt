@@ -1,0 +1,7 @@
+STATIC_URL = '/landslide_a/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# The URL to use when referring to static files (where they will be served from)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR)
+
+diachenko.lyuba@gmail.com

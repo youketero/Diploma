@@ -2,85 +2,39 @@
 {% load staticfiles %}
 
 {% block title %}
+    {{ header_foto }}
 {% endblock %}
 
 {% block content %}
-    <script>
-        function openModal() {
-  document.getElementById('myModal').style.display = "block";
-}
 
-function closeModal() {
-  document.getElementById('myModal').style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-        function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-</script>
-
-
-    <div class="container">
-    <div class="row">
-        {% for foto in show_galery1 %}
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6 pb-4">
-        <img src="{{ foto.foto.url}}" style="width:100%" onclick="openModal();currentSlide({{ foto.foto_id }})" class="hover-shadow cursor">
-      </div>
-        {% endfor %}
-    </div>
-</div>
-
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-    <div>
-    {% for foto1 in show_galery1 %}
-        <div class="mySlides">
-          <img src="{{ foto1.foto.url}}" style="width:100%">
-        </div>
-           {% endfor %}
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <div class="caption-container">
-      <p id="caption"></p>
-
-    <div class="row">
-        {% for foto2 in show_galery1 %}
-            <div class="col-3 cm">
-              <img class="demo cursor pl-1" src="{{ foto2.foto.url}}" style="width:100%" onclick="currentSlide({{ foto2.foto_id }})" alt="Nature and sunrise">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5 ">
+        <div class="container">
+            <div class="gva-view-grid">
+                <header>
+                    <div class="">
+                        <div class="widget gsc-heading align-left style-default padding-bottom-20">
+                            <h2 class="node__title title"><span><span
+                                    property="schema:name">{{ header_foto }}</span></span></h2>
+                            <div class="heading-line"><span class="one"></span><span class="second"></span><span
+                                    class="three"></span></div>
+                        </div>
+                    </div>
+                </header>
+                <div id="lightgallery">
+                    {% for foto in show_galery %}
+                        <div class="col-lg-3 col-md-4 col-sm-6  p-0" data-src="{{ foto.get_display_url }}">
+                        <div class="gallery-block">
+                            <a href="">
+                                <div class="demo-galery-content ">
+                                    <img class="img-responsive cover" src="{{ foto.get_thumbnail_url }}" >
+                                </div>
+                            </a>
+                        </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-         {% endfor %}
-      </div>
+        </div>
     </div>
-  </div>
-</div>
-
 
 {% endblock %}

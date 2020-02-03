@@ -6,16 +6,131 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-       <div class="row">
-            {% for partner in partner_each %}
-                <div class="col-10 col-sm-10 col-lg-3 col-md-5 mt-3 offset-1 offset-lg-0 offset-md-0 ">
-                    <a href="{{ partner.hyper_link_site }}"><img src="{{ partner.foto_logo.url }}" class="w-50 "  alt="..."></a>
+    <div id="content" class="content content-full mt-5 container">
+        <div class="row">
+            <div id="page-main-content" class="main-content col-xs-12 col-md-8 sb-r ">
+                <div class="main-content-inner">
+                    <div class="content-main">
+                        <div>
+                            <div id="block-gavias-edmix-content"
+                                 class="block block-system block-system-main-block no-title">
+                                <div class="content block-content">
+                                    <article data-history-node-id="75" role="article" typeof="schema:WebPage"
+                                             class="node node--type-page node--view-mode-full">
+                                        <header>
+                                            <div class="container">
+                                                <div class="widget gsc-heading align-left style-default padding-bottom-20">
+                                                    <h2 class="node__title title"><span><span property="schema:name">Наші партнери</span></span>
+                                                    </h2>
+                                                    <div class="heading-line"><span class="one"></span><span
+                                                            class="second"></span><span class="three"></span></div>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="node__content clearfix">
+                                            <div property="schema:text"
+                                                 class="field field--name-body field--type-text-with-summary field--label-hidden field__item">
+                                                <p class="pl-4">На данній сторінці ви можете знайти партнерів ННІ "Інституту геології" та інформацію про них</p>
+                                            </div>
+                                            <div class="field field--name-field-block-builder field--type-blockbuilder field--label-hidden field__item">
+                                                <div class="gavias-blockbuilder-content">
+                                                    <div class="gavias-blockbuilder-content">
+                                                        <div class="gbb-row-wrapper">
+                                                            <div class=" gbb-row bg-size-cover" style="">
+                                                                <div class="bb-inner default">
+                                                                    <div class="bb-container container">
+                                                                        <div class="row">
+                                                                            <div class="row-wrapper clearfix">
+                                                                                <div class="gsc-column ">
+                                                                                    <div class="column-inner bg-size-cover ">
+                                                                                        <div class="column-content-inner">
+                                                                                            {% for partner in partner_each %}
+                                                                                                <div class="widget gsc-our-partners ">
+                                                                                                    <div class="image ">
+                                                                                                        <a href="{{ partner.hyper_link_site }}"><img
+                                                                                                                src="{{ partner.foto_logo.url }}"
+                                                                                                                alt=""></a>
+                                                                                                    </div>
+                                                                                                    <div class="content-inner ">
+                                                                                                        <div class="title">{{ partner.name }}</div>
+                                                                                                        <div class="info">
+                                                                                                            <span class="category">Theme &amp; Marketing Consulting,</span>
+                                                                                                            <span class="address">Victoria 8007 Australia</span>
+                                                                                                        </div>
+                                                                                                        <div class="content">
+                                                                                                            <p>{{ partner.short_information }}</p>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            {% endfor %}
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-10 col-sm-10 col-lg-9 col-md-7 mt-3 offset-1 offset-lg-0 offset-md-0">
-                    <p class="text-justify mt-2">{{ partner.short_information }}</p>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 sidebar sidebar-right theiaStickySidebar container ">
+                <div class="px-lg-5">
+                    <div class="views-element-container block block-views block-views-blockpost-other-block-1"
+                         id="block-views-block-post-other-block-1">
+                        <h2 class="block-title"><span>Недавні новини</span></h2>
+                        <div class="content block-content">
+                            <div>
+                                <div class="post-style-list small js-view-dom-id-2dbb5552f705e4c9fcb84c4e04383eba66ce721b49080e8d28ecfb86fbe063d4">
+                                    <div class="item-list">
+                                        <ul>
+                                            {% for article in articles %}
+                                                <li class="view-list-item">
+                                                    <div class="views-field views-field-nothing">
+                                                        <div class="field-content">
+                                                            <div class="post-block">
+                                                                <div class="post-image">
+                                                                    <a href="{% url "article" article.id %}"><img
+                                                                            src="{{ article.image_head.url }}" alt=""
+                                                                            typeof="Image"></a>
+                                                                </div>
+                                                                <div class="post-content">
+                                                                    <div class="post-title"><a
+                                                                            href="{% url "article" article.id %}"
+                                                                            hreflang="en">{{ article.title }}</a>
+                                                                    </div>
+                                                                    <div class="post-meta"><span
+                                                                            class="post-created">{{ article.date|date:"d-m-Y" }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            {% endfor %}
-       </div>
+            </div>
+        </div>
     </div>
+
 {% endblock %}
+
+
+
+
+

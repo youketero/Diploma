@@ -17,10 +17,26 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path
+from photologue.sitemaps import GallerySitemap, PhotoSitemap
+
+from web.views import handler404
+
+
+handler404 = handler404
+
+sitemaps = {'photologue_galleries': GallerySitemap,
+            'photologue_photos': PhotoSitemap,
+            }
 
 urlpatterns = [
+    url(r'^jet/', include('jet.urls', 'jet')),
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^admin/', admin.site.urls),
-    url(r'^', include("web.urls"))
+    url(r'^', include("web.urls")),
+    url(r'^', include("login.urls")),
+    path('accounts/', include('django.contrib.auth.urls')),
+    url(r'^photologue/', include('photologue.urls', namespace='photologue')),
 ]\
     + static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)\
     + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

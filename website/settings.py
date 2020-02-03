@@ -25,20 +25,36 @@ SECRET_KEY = 'ymvb#!#(-94lqau0(e(k%(!ouqy!m#xcde)!^@4!_!hrr7@n80'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*",'127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'web'
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'web',
+    'login',
+    'photologue',
+    'sortedm2m',
 ]
+
+SITE_ID = 1
+
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "youketeroamano22@gmail.com"
+EMAIL_HOST_PASSWORD = "orjptkiozjgntynp"
+EMAIL_PORT = 587
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +71,7 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'login/templates'),os.path.join(BASE_DIR, 'base/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -70,7 +86,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'website.wsgi.application'
-
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -78,7 +95,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "website",
+        'NAME': "univ",
         'USER':"youkio",
         'PASSWORD':'718397',
         'HOST':'127.0.0.1',
@@ -126,5 +143,5 @@ TIME_FORMAT = 'H:i'
 
 STATIC_URL = '/web/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
-MEDIA_ROOT = os.path.join(BASE_DIR,'web')
 MEDIA_URL = '/img/'
+

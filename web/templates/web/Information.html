@@ -1,0 +1,84 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Про інститут
+{% endblock %}
+
+{% block content %}
+    <div class="body-page gva-body-page mt-5">
+        <div role="main" class="main main-page ">
+            <div id="content" class="content content-full">
+                <div class="container container-bg">
+                    <div class="content-main-inner">
+                        <div class="row">
+                            <div id="page-main-content" class="main-content  col-lg-8 col-xs-12 col-md-12 ">
+                                <div class="main-content-inner">
+                                    <div class="content-main">
+                                        <div>
+                                            <header>
+                                                <div class="container">
+                                                    <div class="widget gsc-heading align-left style-default padding-bottom-20">
+                                                        <h2 class="node__title title"><span><span property="schema:name">Про інститут Геології</span></span></h2>
+                                                        <div class="heading-line"><span class="one"></span><span class="second"></span><span class="three"></span></div>
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <div id="block-gavias-edmix-content" class="block block-system block-system-main-block no-title">
+                                                <div class="content block-content">
+                                                    <div class="views-element-container">
+                                                        <div class="post-style-list ">
+                                                            <div class="item-list px-4">
+                                                                <div class="pretty-letter"><p>Серед природничих наук геологія посідає особливе місце, оскільки вивчає будову і розвиток нашої спільної оселі – планети Земля, її походження, мінеральні багатства, екологічні аспекти надро- і природокористування. Величезне значення для повсякденного життя суспільства мають питання інженерної геології, водозабезпечення наших селищ і міст, передбачення землетрусів та інших небезпечних явищ. Це зумовлює широке коло питань, які розв’язує геологія, розмаїття наукових дисциплін і методів геологічних досліджень.</p></div>
+                                                                <div><strong>Геологічний факультет</strong> Київського університету заснований у 1944 році. Серед випускників факультету чимало вчених-геологів зі світовим визнанням – десятки академіків, членів-кореспондентів, докторів наук, лауреатів Державної премії та Тараса Шевченка, заслужені діячі науки і техніки, відкривачі цілої низки великих родовищ корисних копалин.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 sidebar sidebar-right theiaStickySidebar mt-lg-0  mx-lg-0 mx-4 mt-4  ">
+                                <div class="views-element-container block block-views block-views-blockpost-other-block-1"
+                                     id="block-views-block-post-other-block-1">
+                                    <h2 class="block-title"><span>Недавні новини</span></h2>
+                                    <div class="content block-content">
+                                        <div class="m-sm-4 mx-lg-0 mx-md-0 m-4 ">
+                                            <div class="post-style-list small js-view-dom-id-2dbb5552f705e4c9fcb84c4e04383eba66ce721b49080e8d28ecfb86fbe063d4">
+                                                <div class="item-list">
+                                                    <ul>
+                                                        {% for article in articles %}
+                                                            <li class="view-list-item">
+                                                                <div class="views-field views-field-nothing">
+                                                                    <div class="field-content">
+                                                                        <div class="post-block">
+                                                                            <div class="post-image">
+                                                                                <a href="{% url "article" article.id %}"><img src="{{ article.image_head.url }}" alt="" typeof="Image"></a>
+                                                                            </div>
+                                                                            <div class="post-content">
+                                                                                <div class="post-title"><a href="{% url "article" article.id %}" hreflang="en">{{ article.header_image }}</a>
+                                                                                </div>
+                                                                                <div class="post-meta"><span class="post-created">{{ article.date }}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

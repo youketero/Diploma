@@ -1,21 +1,29 @@
+from django.conf import settings
 from django.conf.urls import url
+from django.contrib.auth import logout
+
 
 import web.views
 
 urlpatterns = [
     url(r'^$', web.views.home, name="home"),
+    url(r'^vstup/$',web.views.vstup,name="vstup"),
+    url(r'^vstup/(?P<id>.*)/$',web.views.vstup_info,name="vstup_info"),
     url(r'^about/$', web.views.about, name ="about"),
-    url(r'^article/(?P<article_id>\w+)/$', web.views.show_articles, name='article'),
+    url(r'^article/(?P<article_title>.*)/$', web.views.show_articles, name='article'),
     url(r'^anonce/$', web.views.anonce1, name ="anonce"),
-    url(r'^formm/$', web.views.form_user ,name='forms'),
+    url(r'^anonce/(?P<anonce_id>.*)/$', web.views.anonce_detail, name='anonce_detail'),
     url(r'^structure/$', web.views.structure, name='cathed'),
     url(r'^library/$', web.views.library, name="library"),
     url(r'^news/$', web.views.news, name="news"),
     url(r'^galery/$', web.views.galery,name='galery'),
-    url(r'^galery/(?P<header_foto>\w+)/$', web.views.show_galery, name = "foto_gallery"),
+    url(r'^galery/(?P<header_foto>.*)/$', web.views.show_galery, name = "foto_gallery"),
     url(r'^partner/$', web.views.partneru, name="partner"),
-    url(r'^hyper_link/$', web.views.hyper_link, name = "usefull_link"),
-    url(r'^structure/(?P<cathed_name>\w+)/$', web.views.cathed_b, name = 'cathed_name'),
-    url(r'^teacher/$', web.views.teachers,name = "teacher")
+    url(r'^contact/$', web.views.contact, name="contact"),
+    url(r'^structure/(?P<cathed_name>.*)/$', web.views.cathed_b, name = 'cathed_name'),
+    url(r'^info/$',web.views.info, name="info"),
+    url(r'^teacher(?P<teacher>.*)/$', web.views.teacher,name = "teacher"),
+    url(r'^edu_plan/$', web.views.edu_plans, name="edu_plan"),
+    url(r'^education/$', web.views.education , name='education'),
+    url(r'^search_result', web.views.search.as_view(), name = "search")
 ]
-

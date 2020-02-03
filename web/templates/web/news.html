@@ -2,51 +2,128 @@
 
 {% load staticfiles %}
 {% block title %}
-    News
+    Новини
 {% endblock %}
 
 {% block content %}
 
 
-    <div class="container"><h3 class="container">Новини</h3></div>
-
-    <div class="container mt-3 mb-4">
-    <div class="card-deck  text-left">
-    {% for article in articles  %}
-        <div class="col-xs-12 col-lg-4 col-md-6 col-10 offset-lg-0 offset-md-0 offset-1">
-        <div class="card bg-light mt-3 ">
-            <img class="card-img" src="{{ article.image.url }}" width="100%" height="250" alt="Card image cap">
-            <div ><a href="{% url 'article' article.id %}"> <h4 class="pl-3 pt-2">{{ article.title }}</h4></a></div>
-                <div class="card-body">
-                    <p>{{ article.short_text }}</p>
-                    <div class= "text-dark ">
-                        <p class=" d-inline">  <small class="text-muted">{{ article.date }}</small></p>
-                        <a href="boot.html" class=" d-inline pl-2 float-right r"> <i class=" fab fa-twitter"></i></a>
-                        <a href="boot.html" class="  d-inline pl-2 float-right t" > <i class="fab fa-vk "></i></a>
-                         <a href="https://www.facebook.com/www.geol.univ.kiev.ua/" class=" d-inline pl-2 float-right t"> <i class="fab fa-facebook-f "></i></a>
-
+    <div class="body-page gva-body-page mt-5">
+        <div role="main" class="main main-page ">
+            <div id="content" class="content content-full">
+                <div class="container container-bg">
+                    <div class="content-main-inner">
+                        <div class="row">
+                            <div id="page-main-content" class="main-content  col-lg-8 col-xs-12 col-md-12 ">
+                                <div class="main-content-inner">
+                                    <div class="content-main">
+                                        <div>
+                                            <header>
+                                                <div class="container">
+                                                    <div class="widget gsc-heading align-left style-default padding-bottom-20">
+                                                        <h2 class="node__title title"><span><span property="schema:name">Новини</span></span></h2>
+                                                        <div class="heading-line"><span class="one"></span><span class="second"></span><span class="three"></span></div>
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <div id="block-gavias-edmix-content"
+                                                 class="block block-system block-system-main-block no-title">
+                                                <div class="content block-content">
+                                                    <div class="views-element-container">
+                                                        <div class="post-style-list ">
+                                                            <div class="item-list px-4">
+                                                                <ul>
+                                                                    {% for article in contacts %}
+                                                                        <li class="view-list-item">
+                                                                            <div class="views-field views-field-nothing">
+                                                                                <span class="field-content">
+                                                                                    <div class="post-block">
+                                                                                     <div class="post-image"> <img src="{{ article.image_head.url }}" alt="" typeof="Image"></div>
+                                                                                     <div class="post-content">
+                                                                                        <div class="post-title"><a href="{% url "article" article.title %}" hreflang="en">{{ article.title }}</a></div>
+                                                                                        <div class="post-meta margin-bottom-10"> <span class="post-created"> {{ article.date|date:"d-m-Y" }}</span></div>
+                                                                                        <div class="body">{{ article.short_text }}</div>
+                                                                                     </div>
+                                                                                  </div>
+                                                                               </span>
+                                                                            </div>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            </div>
+                                                            <nav class="pager" role="navigation" aria-labelledby="pagination-heading">
+                                                                <ul class="pager__items js-pager__items">
+                                                                    {% if contacts.has_previous %}
+                                                                        <li class="pager__item">
+                                                                            <a href="?page=1">&laquo; first</a>
+                                                                        </li>
+                                                                        <li class="pager__item">
+                                                                            <a href="?page={{ contacts.previous_page_number }}">{{ contacts.previous_page_number }}</a>
+                                                                        </li>
+                                                                    {% endif %}
+                                                                    <li class="pager__item is-active"><a href="?page={{ contacts.number }}"> {{ contacts.number }} </a>
+                                                                    </li>
+                                                                    {% if contacts.has_next %}
+                                                                        <li class="pager__item" aria-current="page">
+                                                                            <a href="?page={{ contacts.next_page_number }}">{{ contacts.next_page_number }}</a>
+                                                                        </li>
+                                                                        <li class="pager__item">
+                                                                            <a href="?page={{ contacts.paginator.num_pages }}">
+                                                                                <span aria-hidden="true">Last »</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    {% endif %}
+                                                                </ul>
+                                                            </nav>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 sidebar sidebar-right theiaStickySidebar  ">
+                                <div class="views-element-container block block-views block-views-blockpost-other-block-1"
+                                     id="block-views-block-post-other-block-1">
+                                    <h2 class="block-title"><span>Недавні новини</span></h2>
+                                    <div class="content block-content">
+                                        <div>
+                                            <div class="post-style-list small js-view-dom-id-2dbb5552f705e4c9fcb84c4e04383eba66ce721b49080e8d28ecfb86fbe063d4">
+                                                <div class="item-list">
+                                                    <ul>
+                                                        {% for article in articles %}
+                                                            <li class="view-list-item">
+                                                                <div class="views-field views-field-nothing">
+                                                                    <div class="field-content">
+                                                                        <div class="post-block">
+                                                                            <div class="post-image">
+                                                                                <a href="{% url "article" article.title %}"><img src="{{ article.image_head.url }}" alt="" typeof="Image"></a>
+                                                                            </div>
+                                                                            <div class="post-content">
+                                                                                <div class="post-title"><a href="{% url "article" article.title %}" hreflang="en">{{ article.title }}</a>
+                                                                                </div>
+                                                                                <div class="post-meta"><span
+                                                                                        class="post-created">{{ article.date|date:"d-m-Y" }}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    {% endfor %}
-        </div>
     </div>
-
-<nav aria-label="Page navigation p-5">
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-        {% if articles.has_previous %}
-            <a class="page-link"  href="?page={{ articles.previous_page_number }}" >Previous</a>
-        {% endif %}
-    </li>
-    <li class="page-item"><a class="page-link" href="#">{{ articles.number }} </a></li>
-        {% if articles.has_next %}
-          <li class="page-item"> <a class="page-link" href="?page={{ articles.next_page_number }}">Next</a></li>
-          <li class="page-item">   <a class="page-link" href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a> </li>
-        {% endif %}
-  </ul>
-</nav>
 
 {% endblock %}
