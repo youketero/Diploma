@@ -1,117 +1,104 @@
-{% extends "web/base.html" %}
+{% extends "web/aside.html" %}
 
 {% load staticfiles %}
 {% block title %}
     {{ article.header_image }}
 {% endblock %}
 
-{% block content %}
-
-
-   <div id="content" class="content content-full mt-5">
-    <div class="container container-bg">
-        <div class="content-main-inner">
-            <div class="row">
-                <div class="gav-help-region">
-                    <div class="container">
-                        <div class="content-inner">
-                            <div>
-                                <div data-drupal-messages-fallback="" class="hidden"></div>
-                            </div>
-                        </div>
-                    </div>
+{% block aside %}
+    <div class="gav-help-region">
+        <div class="container">
+            <div class="content-inner">
+                <div>
+                    <div data-drupal-messages-fallback="" class="hidden"></div>
                 </div>
-                <div id="page-main-content" class="main-content col-xs-12 col-md-12 col-lg-8 mt-3s">
-                    <div class="main-content-inner">
-                        <div class="content-main">
-                            <div>
-                                <div id="block-gavias-edmix-content" class="block block-system block-system-main-block no-title">
-                                    <div class="content block-content">
-                                        <article data-history-node-id="24" role="article" about="/drupal/edmix/business-card-red" class="node node-detail node--type-portfolio node--promoted node--view-mode-full clearfix p-0">
-                                            <div class="post-block ">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="post-thumbnail ">
-                                                            <div>
-                                                                <div class="post-grid-1 js-view-dom-id-1fa149c0900b31ad0a75c65f550d7aba8c5ef293b4a5e4954e21f6a44b11c6e7">
-                                                                     <div class="owl-carousel init-carousel-owl  " data-items="2" data-items_lg="1" data-items_md="1" data-items_sm="1" data-items_xs="1" data-loop="1" data-speed="200" data-auto_play="0" data-auto_play_speed="1000" data-auto_play_timeout="3000" data-auto_play_hover="1" data-navigation="1" data-rewind_nav="0" data-pagination="0" data-mouse_drag="1" data-touch_drag="1">
-                                                                        {% for img in article.header_image.all %}
-                                                                            <img src="{{ img.foto.url }}" alt="" typeof="Image">
-                                                                        {% endfor %}
-                                                                     </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-main-content" class="main-content col-xs-12 col-md-12 col-lg-8 mt-3s">
+        <div class="main-content-inner">
+            <div class="content-main">
+                <div>
+                    <div id="block-gavias-edmix-content"
+                         class="block block-system block-system-main-block no-title">
+                        <div class="content block-content">
+                            <article data-history-node-id="24" role="article"
+                                     about="/drupal/edmix/business-card-red"
+                                     class="node node-detail node--type-portfolio node--promoted node--view-mode-full clearfix p-0">
+                                <div class="post-block ">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="post-thumbnail ">
+                                            <div>
+                                                <div class="post-grid-1 js-view-dom-id-1fa149c0900b31ad0a75c65f550d7aba8c5ef293b4a5e4954e21f6a44b11c6e7">
+                                                    <div class="owl-carousel init-carousel-owl  "
+                                                         data-items="2" data-items_lg="1"
+                                                         data-items_md="1" data-items_sm="1"
+                                                         data-items_xs="1" data-loop="1"
+                                                         data-speed="200" data-auto_play="0"
+                                                         data-auto_play_speed="1000"
+                                                         data-auto_play_timeout="3000"
+                                                         data-auto_play_hover="1" data-navigation="1"
+                                                         data-rewind_nav="0" data-pagination="0"
+                                                         data-mouse_drag="1" data-touch_drag="1">
+                                                        {% for img in article.header_image.all %}
+                                                            <img src="{{ img.foto.url }}" alt=""
+                                                                 typeof="Image">
+                                                        {% endfor %}
                                                     </div>
-                                                <div class="post-content  ">
-                                                    <header class="p-0">
-                                                            <div class="widget gsc-heading align-left style-default pb-2">
-                                                                <h2 class="node__title title"><span><span property="schema:name">{{ article.header_image.header_foto }}</span></span></h2>
-                                                                <div class="heading-line"><span class="one"></span><span class="second"></span><span class="three"></span></div>
-                                                            </div>
-                                                    </header>
-                                                    <div class="py-4 " style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);"><span class="post-categories"><span class="post-created"> <i class="far fa-calendar-alt pr-2"></i> {{ article.date|date:"d-m-Y" }} </span> </span></div>
-                                                    <div class="post-block pretty-letter mt-4"><p>{{ article.text|linebreaksbr}}</p></div>
-                                                    <div class="social d-flex flex-lg-row align-center py-4" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-                                                                                                <div><a href="https://www.facebook.com/www.geol.univ.kiev.ua/" class="facebook"><i class="fab  fa-facebook-f "></i></a></div>
-
-                                                                                                <div> <a href="https://twitter.com/kyivuniversity"  class="twitter"><i class="fab  fa-twitter "></i></a></div>
-                                                                                                <div><a href="https://t.me/abit_geologists" class="telegram"><i class="fab  fa-telegram-plane "></i></a></div></div>
-                                 <div class="mt-5">
-                                <h5>Більше деталей</h5>
-                                <div class="mt-3">
-                                    <a href="mailto:geol_decanat@univ.kiev.ua"><i class="fas fa-envelope mr-3"></i></a>  geol_decanat@univ.kiev.ua
-                                </div>
-                                <div class="py-4 mb-4" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-                                    <a href="tel:(+84) 04 123 456"><i class="fas fa-mobile mr-4"></i></a>(+84) 04 123 456
-                                </div>
-                            </div>
                                                 </div>
-                                        </article>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="post-content  ">
+                                    <header class="p-0">
+                                        <div class="widget gsc-heading align-left style-default pb-2">
+                                            <h2 class="node__title title"><span><span
+                                                    property="schema:name">{{ article.header_image.header_foto }}</span></span>
+                                            </h2>
+                                            <div class="heading-line"><span class="one"></span><span
+                                                    class="second"></span><span class="three"></span>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <div class="py-4 "
+                                         style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);"><span
+                                            class="post-categories"><span class="post-created"> <i
+                                            class="far fa-calendar-alt pr-2"></i> {{ article.date|date:"d-m-Y" }} </span> </span>
+                                    </div>
+                                    <div class="post-block pretty-letter mt-4">
+                                        <p>{{ article.text|linebreaksbr }}</p></div>
+                                    <div class="social d-flex flex-lg-row align-center py-4"
+                                         style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+                                        <div><a href="{{ article.link_facebook }}"
+                                                class="facebook"><i class="fab  fa-facebook-f "></i></a>
+                                        </div>
+
+                                        <div><a href="{{ article.link_twitter }}"
+                                                class="twitter"><i class="fab  fa-twitter "></i></a>
+                                        </div>
+                                        <div><a href="{{ article.link_telegram }}" class="telegram"><i
+                                                class="fab  fa-telegram-plane "></i></a></div>
+                                    </div>
+                                    <div class="mt-5">
+                                        <h5>Більше деталей</h5>
+                                        <div class="mt-3">
+                                            <a href="mailto:geol_decanat@univ.kiev.ua"><i
+                                                    class="fas fa-envelope mr-3"></i></a>
+                                            geol_decanat@univ.kiev.ua
+                                        </div>
+                                        <div class="py-4 mb-4"
+                                             style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+                                            <a href="tel:(+84) 04 123 456"><i
+                                                    class="fas fa-mobile mr-4"></i></a>(+84) 04 123 456
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 sidebar sidebar-right theiaStickySidebar ">
-    <div class=" px-lg-5">
-                               <div class="views-element-container block block-views block-views-blockpost-other-block-1" id="block-views-block-post-other-block-1">
-    <h2 class="block-title"><span>Recent Posts</span></h2>
-    <div class="content block-content">
-        <div>
-            <div class="post-style-list small js-view-dom-id-2dbb5552f705e4c9fcb84c4e04383eba66ce721b49080e8d28ecfb86fbe063d4">
-                <div class="item-list">
-                    <ul>
-                        {% for article in all_article %}
-                        <li class="view-list-item">
-                            <div class="views-field views-field-nothing">
-                                <div class="field-content">
-                                    <div class="post-block">
-                                        <div class="post-image">
-                                            <a href="{% url "article" article.title %}"><img src="{{ article.image_head.url }}" alt="" typeof="Image"></a>
-                                        </div>
-                                        <div class="post-content">
-                                            <div class="post-title"> <a href="{% url "article" article.title %}" hreflang="en">{{ article.title }}</a> </div>
-                                            <div class="post-meta"> <span class="post-created">{{ article.date|date:"d-m-Y" }}</span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
-</div>
-    </div>
-                            </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 {% endblock %}

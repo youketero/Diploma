@@ -4,34 +4,22 @@
 
 
 {% block content %}
-     {% if user.is_authenticated and request.user|has_group:"active_user" %}
-    {% block permission %}
+    {% if user.is_authenticated and request.user|has_group:"active_user" %}
+        {% block permission %}
 
-    {% endblock %}
+        {% endblock %}
 
-     {% else %}
-
+    {% else %}
+        <div class="container my-5 px-4 p-5 container-danger">
+            <div class="col-offset-2 text-center my-5">
+                <h2 class="text-danger">Ви не авторизовані у системі</h2>
+                <p>Це буває у випадку коли ви не авторизовані,
+                    або у вас немає дозволів на дану сторінку.</p>
+                <p>Якщо ви зареєстровані та ваші дані валідні почекайте добу.</p>
+            </div>
+        </div>
     {% endif %}
 
 
-<script>
-      new Glide('#glide2', {
-            type: 'carousel',
-            perView: 5,
-            autoplay: 3000,
-            breakpoints: {
-                1000: {
-                    perView: 3
-                },
-
-                800: {
-                    perView: 2
-                },
-                600: {
-                    perView: 1
-                }
-            }
-        }).mount();
-      </script>
 
 {% endblock %}

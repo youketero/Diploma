@@ -23,13 +23,13 @@
                 <div id="lightgallery">
                     {% for foto in show_galery %}
                         <div class="col-lg-3 col-md-4 col-sm-6  p-0" data-src="{{ foto.get_display_url }}">
-                        <div class="gallery-block">
-                            <a href="">
-                                <div class="demo-galery-content ">
-                                    <img class="img-responsive cover" src="{{ foto.get_thumbnail_url }}" >
-                                </div>
-                            </a>
-                        </div>
+                            <div class="gallery-block">
+                                <a href="">
+                                    <div class="demo-galery-content ">
+                                        <img class="img-responsive cover" src="{{ foto.get_thumbnail_url }}">
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>

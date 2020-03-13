@@ -7,21 +7,25 @@
 {% block content %}
     <h5>About us</h5>
     <div class="card">
-        <div class="card-body">Кнотакти нашого університету </div>
+        <div class="card-body">Кнотакти нашого університету</div>
         <div class="card-footer"> Если что-то не нравится идете лесом</div>
     </div>
     {% for articl in article %}
-   <div class="card col-xs-12 col-sm-6 pt-4 bg-light mb-3">
-    <img class="card-img-top" src="{% static  "img/nature & landscape (2).jpg" %}" width="100%" height="340" alt="Card image cap">
-    <div class="card-header">Новина {{ articl.title }}</div>
-     <div class="card-body">
-      <p class="card-text">{{articl.text}}</p>
-         <button type="button" class="btn btn-outline-dark"><i class="fas fa-arrow-right"></i> Читати далі</button>
+        <div class="card col-xs-12 col-sm-6 pt-4 bg-light mb-3">
+            <img class="card-img-top" src="{% static  "img/nature & landscape (2).jpg" %}" width="100%" height="340"
+                 alt="Card image cap">
+            <div class="card-header">Новина {{ articl.title }}</div>
+            <div class="card-body">
+                <p class="card-text">{{ articl.text }}</p>
+                <button type="button" class="btn btn-outline-dark"><i class="fas fa-arrow-right"></i> Читати далі
+                </button>
 
-         <p class="pt-3">  <small class="text-muted">Опубліковано {{ articl.date }}</small></p>
+                <p class="pt-3">
+                    <small class="text-muted">Опубліковано {{ articl.date }}</small>
+                </p>
 
-    </div>
-   </div>
+            </div>
+        </div>
 
     {% endfor %}
 {% endblock %}

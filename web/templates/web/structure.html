@@ -33,13 +33,15 @@
                                             </header>
                                             <div>
                                                 <div class="mt-4">
-                                                            <div class="post-block">
-                                                              {% for cathed in cathed2 %}
-                                                                  <div class="pt-2">
-                                                                    <div class="post-title"><a href="{% url "cathed_name" cathed.cathed_name %}">{{ cathed.cathed_name }}</a></div>
-                                                                  </div>
-                                                                    {% endfor %}
+                                                    <div class="post-block">
+                                                        {% for cathed in cathed2 %}
+                                                            <div class="pt-2">
+                                                                <div class="post-title"><a
+                                                                        href="{% url "cathed_name" cathed.cathed_name %}">{{ cathed.cathed_name_rus }}</a>
+                                                                </div>
                                                             </div>
+                                                        {% endfor %}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

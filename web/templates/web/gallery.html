@@ -38,11 +38,17 @@
                                                             <div class="gallery-block">
                                                                 <div class="gallery-images lightGallery">
                                                                     <div>
-                                                                        <div class="image-item"><img src="{{ foto.photos.first.get_thumbnail_url}}" alt="" class="hidden"> <img src="{{ foto.photos.first.get_thumbnail_url}}" alt="" typeof="foaf:Image"></div>
+                                                                        <div class="image-item"><img
+                                                                                src="{{ foto.photos.first.get_thumbnail_url }}"
+                                                                                alt="" class="hidden"> <img
+                                                                                src="{{ foto.photos.first.get_thumbnail_url }}"
+                                                                                alt="" typeof="foaf:Image"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="gallery-content">
-                                                                    <h3 class="post-title"><a href="{% url "foto_gallery"  foto.title  %}" rel="bookmark"><span>{{ foto.title }}</span></a>
+                                                                    <h3 class="post-title"><a
+                                                                            href="{% url "foto_gallery"  foto.title %}"
+                                                                            rel="bookmark"><span>{{ foto.title }}</span></a>
                                                                     </h3>
                                                                 </div>
                                                             </div>

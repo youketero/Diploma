@@ -19,8 +19,10 @@ class foto_gallery(models.Model):
     name_foto = models.TextField(default="name_foto")
     header_id = models.ForeignKey(type_foto, default=1, on_delete=models.CASCADE)
     foto_id = models.IntegerField(default=1)
+
     def __unicode__(self):
         return "%s %s " % (self.foto_id, self.header_id.header_foto)
+
 
 class foto_article(models.Model):
     foto = models.ImageField(upload_to="web/static/img")
@@ -37,6 +39,9 @@ class Articles(models.Model):
     image_head = models.ImageField(upload_to="web/static/img", default="#")
     text = models.TextField()
     date = models.DateField()
+    link_facebook = models.TextField(default="Enter link here")
+    link_telegram = models.TextField(default="Enter link here")
+    link_twitter = models.TextField(default="Enter link here")
     user_id = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
     class Meta:
@@ -69,6 +74,9 @@ class future_conference_anonce(models.Model):
     text = models.TextField()
     date = models.DateField()
     location = models.TextField(default="/")
+    link_facebook = models.TextField(default="Enter link here")
+    link_telegram = models.TextField(default="Enter link here")
+    link_twitter = models.TextField(default="Enter link here")
     foto = models.ImageField(upload_to='web/static/img', default="#")
     partner_id = models.ManyToManyField(partner)
 
@@ -89,12 +97,12 @@ class stucture_cathed(models.Model):
     cathed_name_rus = models.TextField(max_length=100, default="write")
     history = models.TextField()
     foto = models.ImageField(upload_to='web/static/img')
-    number = models.IntegerField(default=0)
+    number = models.CharField(max_length=25)
     description = models.TextField(default="enter desciption here")
     email = models.TextField(default="http")
 
     def __str__(self):
-        return "%s %s %s" % (self.cathed_name, self.history, self.foto)
+        return "%s" % self.cathed_name
 
 
 class structure_person(models.Model):
@@ -104,7 +112,7 @@ class structure_person(models.Model):
     short_history = models.TextField(default='history')
     cathed_id = models.ForeignKey(stucture_cathed, on_delete=models.CASCADE)
     staff_id = models.ForeignKey(structure_staff, default=1, on_delete=models.CASCADE)
-    phone_number = models.IntegerField(default=0)
+    phone_number = models.CharField(max_length=25)
     monography = models.TextField(default="monography")
     step = models.TextField(default="doctor")
 
@@ -116,6 +124,7 @@ class structure_person(models.Model):
             return self.short_history[:100] + '...'
         else:
             return self.short_history
+
 
 class entrance_specialization(models.Model):
     specialization_name = models.TextField(default="enter specialization here")
@@ -140,12 +149,6 @@ class entrance_code(models.Model):
 
     def __str__(self):
         return "%s,%s" % (self.specialization_code, self.specialization_id)
-
-
-
-
-
-
 
 
 class library_author(models.Model):
@@ -177,11 +180,10 @@ class subject_edu(models.Model):
     cathed_specialization = models.ForeignKey(stucture_cathed, default=1, on_delete=models.CASCADE)
 
 
-
 class edu_plan(models.Model):
-    choise_cource = ((1, '1'), (2, '2'), (3, '3'),(4,"4"))
+    choise_cource = ((1, '1'), (2, '2'), (3, '3'), (4, "4"))
     edu_plan_doc = models.FileField(upload_to="web/static/docs")
-    cource = models.IntegerField(default=1,choices=choise_cource)
+    cource = models.IntegerField(default=1, choices=choise_cource)
 
     def __str__(self):
         return "%s" % (self.edu_plan_doc)
@@ -201,14 +203,28 @@ class entrance_specialization_way(models.Model):
     choise_field = (('Бакалавр', 'Бакалавр'), ('Магістр', 'Магістр'), ('Молодший спеціаліст', 'Молодший спеціаліст'))
     code_id = models.ForeignKey(entrance_code, default=1, on_delete=models.CASCADE)
     subject_id = models.ManyToManyField(entrance_subject)
-    edu_plan_id = models.ForeignKey(edu_plan, default=1,on_delete=models.CASCADE)
-    form_education = models.TextField( choices=choise_field, max_length=1000, default="enter your form of education here")
+    edu_plan_id = models.ForeignKey(edu_plan, default=1, on_delete=models.CASCADE)
+    form_education = models.TextField(choices=choise_field, max_length=1000,
+                                      default="enter your form of education here")
     education_level = models.TextField(max_length=1000, default="enter your education level here")
     license = models.IntegerField(default=1)
     payment = models.IntegerField(default=1)
     duration_of_study = models.FloatField(default=1.0)
-    short_description = models.TextField(max_length=100000,default="Enter description here")
+    short_description = models.TextField(max_length=100000, default="Enter description here")
 
     def __str__(self):
         return "%s,%s" % (self.code_id, self.license)
 
+
+class Info(models.Model):
+    title = models.TextField(default="Enter title here")
+    image_head = models.ImageField(upload_to="web/static/img", default="#")
+    text = models.TextField()
+    date = models.DateField()
+    link_facebook = models.TextField(default="Enter link here")
+    link_telegram = models.TextField(default="Enter link here")
+    link_twitter = models.TextField(default="Enter link here")
+    user_id = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return super().__str__()

@@ -1,13 +1,11 @@
-{% extends "web/base.html" %}
+{% extends "web/aside.html" %}
 {% load staticfiles %}
 
 {% block title %}
     Наші партнери
 {% endblock %}
 
-{% block content %}
-    <div id="content" class="content content-full mt-5 container">
-        <div class="row">
+{% block aside %}
             <div id="page-main-content" class="main-content col-xs-12 col-md-8 sb-r ">
                 <div class="main-content-inner">
                     <div class="content-main">
@@ -30,7 +28,8 @@
                                         <div class="node__content clearfix">
                                             <div property="schema:text"
                                                  class="field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                                <p class="pl-4">На данній сторінці ви можете знайти партнерів ННІ "Інституту геології" та інформацію про них</p>
+                                                <p class="pl-4">На данній сторінці ви можете знайти партнерів ННІ
+                                                    "Інституту геології" та інформацію про них</p>
                                             </div>
                                             <div class="field field--name-field-block-builder field--type-blockbuilder field--label-hidden field__item">
                                                 <div class="gavias-blockbuilder-content">
@@ -83,51 +82,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 sidebar sidebar-right theiaStickySidebar container ">
-                <div class="px-lg-5">
-                    <div class="views-element-container block block-views block-views-blockpost-other-block-1"
-                         id="block-views-block-post-other-block-1">
-                        <h2 class="block-title"><span>Недавні новини</span></h2>
-                        <div class="content block-content">
-                            <div>
-                                <div class="post-style-list small js-view-dom-id-2dbb5552f705e4c9fcb84c4e04383eba66ce721b49080e8d28ecfb86fbe063d4">
-                                    <div class="item-list">
-                                        <ul>
-                                            {% for article in articles %}
-                                                <li class="view-list-item">
-                                                    <div class="views-field views-field-nothing">
-                                                        <div class="field-content">
-                                                            <div class="post-block">
-                                                                <div class="post-image">
-                                                                    <a href="{% url "article" article.id %}"><img
-                                                                            src="{{ article.image_head.url }}" alt=""
-                                                                            typeof="Image"></a>
-                                                                </div>
-                                                                <div class="post-content">
-                                                                    <div class="post-title"><a
-                                                                            href="{% url "article" article.id %}"
-                                                                            hreflang="en">{{ article.title }}</a>
-                                                                    </div>
-                                                                    <div class="post-meta"><span
-                                                                            class="post-created">{{ article.date|date:"d-m-Y" }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 {% endblock %}
 
 

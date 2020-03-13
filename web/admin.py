@@ -3,19 +3,19 @@ from django.contrib import admin
 # Register your models here.
 
 from web.models import Articles, type_foto, entrance_code, entrance_subject, entrance_specialization, \
-    entrance_specialization_way,foto_article, foto_gallery, future_conference_anonce, \
-    structure_staff, stucture_cathed, structure_person, partner, library_author, library_book, edu_plan, edu_prog
-
+    entrance_specialization_way, foto_article, foto_gallery, future_conference_anonce, \
+    structure_staff, stucture_cathed, structure_person, partner, library_author, library_book, edu_plan, edu_prog, Info
 
 
 class article_fil(admin.ModelAdmin):
-    list_display = ["title",'date']
+    list_display = ["title", 'date']
     list_filter = ['date']
+
     class Meta:
         model = Articles
 
 
-admin.site.register(Articles,article_fil)
+admin.site.register(Articles, article_fil)
 admin.site.register(type_foto)
 admin.site.register(entrance_code)
 admin.site.register(entrance_subject)
@@ -26,16 +26,27 @@ admin.site.register(foto_gallery)
 admin.site.register(foto_article)
 admin.site.register(future_conference_anonce)
 admin.site.register(structure_staff)
-admin.site.register(structure_person)
+
+class structure_person_fil(admin.ModelAdmin):
+    list_display = ["name","last_name"]
+
+    class Meta:
+        model = structure_person
+
+admin.site.register(structure_person,structure_person_fil)
 
 
 class structure_cathed_fil(admin.ModelAdmin):
     list_display = ["cathed_name"]
+
     class Meta:
         model = stucture_cathed
-admin.site.register(stucture_cathed,structure_cathed_fil)
+
+
+admin.site.register(stucture_cathed, structure_cathed_fil)
 admin.site.register(library_book)
 admin.site.register(library_author)
 admin.site.register(partner)
 admin.site.register(edu_plan)
 admin.site.register(edu_prog)
+admin.site.register(Info)

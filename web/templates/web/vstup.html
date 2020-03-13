@@ -14,7 +14,8 @@
                             <div class="widget gsc-heading align-left style-default padding-bottom-20">
                                 <h2 class="node__title title"><span><span property="schema:name">Освітні програми</span></span>
                                 </h2>
-                                <div class="heading-line"><span class="one"></span><span class="second"></span><span class="three"></span></div>
+                                <div class="heading-line"><span class="one"></span><span class="second"></span><span
+                                        class="three"></span></div>
                                 <div class="title-desc">
                                     <p>В даному розділі ви можете знайти інформацію про оствітні програми для бакалаврів
                                         та магістріва</p>
@@ -32,7 +33,9 @@
                                                 <div class="column-inner bg-size-cover ">
                                                     <div class="column-content-inner">
                                                         <div class="gsc-image-content margin-bottom-0 skin-v2">
-                                                            <div class="image"><a href="#"><img class="cover" src="{{ program.code_id.specialization_id.foto.url }}" alt="Design and renovation"></a>
+                                                            <div class="image"><a href="#"><img class="cover"
+                                                                                                src="{{ program.code_id.specialization_id.foto.url }}"
+                                                                                                alt="Design and renovation"></a>
                                                             </div>
                                                             <div class="content">
                                                                 <h4 class="title">{{ program.code_id.specialization_code }} {{ program.code_id.specialization_id.specialization_name }}</h4>
@@ -47,7 +50,9 @@
                                                                         {% endfor %}
                                                                     </ul>
                                                                 </div>
-                                                                <div class="action"><a href="{% url "vstup_info" program.code_id.specialization_id.specialization_name %}">Читати далі</a></div>
+                                                                <div class="action"><a
+                                                                        href="{% url "vstup_info" program.code_id.specialization_id.specialization_name %}">Читати
+                                                                    далі</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
