@@ -7,6 +7,7 @@ from web.models import Articles, type_foto, entrance_code, entrance_subject, ent
     structure_staff, stucture_cathed, structure_person, partner, library_author, library_book, edu_plan, edu_prog, Info
 
 
+
 class article_fil(admin.ModelAdmin):
     list_display = ["title", 'date']
     list_filter = ['date']
