@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ymvb#!#(-94lqau0(e(k%(!ouqy!m#xcde)!^@4!_!hrr7@n80'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -56,7 +56,7 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "youketeroamano22@gmail.com"
-EMAIL_HOST_PASSWORD = "wnietixqlgnaykdo"
+EMAIL_HOST_PASSWORD = 
 EMAIL_PORT = 587
 
 MIDDLEWARE = [
@@ -98,9 +98,9 @@ LOGOUT_REDIRECT_URL = '/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': "univ1",
-        'USER':"youkio",
-        'PASSWORD':'718397',
+        'NAME': ,
+        'USER':,
+        'PASSWORD':,
         'HOST':'127.0.0.1',
         'PORT':'5432'
     }
