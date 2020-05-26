@@ -1,8 +1,55 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User, Permission
-from django.db import models
+from  django.contrib.gis.db import models
 import datetime
 
+
+
+class geol_raster(models.Model):
+    name = models.CharField(default="#",max_length=30)
+    raster = models.RasterField()
+
+class Geology(models.Model):
+    area = models.FloatField()
+    perimeter = models.FloatField()
+    type = models.CharField(max_length=5)
+    glg = models.CharField(max_length=5)
+    gen_glg = models.CharField(max_length=5)
+    geom = models.MultiPolygonField()
+
+class Points_city(models.Model):
+    image_city = models.ImageField(default="#",upload_to="web/static/img")
+    city_name = models.CharField(max_length=40)
+    admin_name = models.CharField(max_length=42)
+    cntry_name = models.CharField(max_length=40)
+    status = models.CharField(max_length=50)
+    geom = models.PointField(srid=4326)
+
+    def __str__(self):
+        return self.city_name
+
+
+class Points(models.Model):
+    lat = models.CharField(max_length=12)
+    lon = models.CharField(max_length=12)
+    name = models.CharField(max_length=17)
+    aux1 = models.CharField(max_length=22)
+    aux2 = models.CharField(max_length=22)
+    aux3 = models.CharField(max_length=14)
+    longname = models.CharField(max_length=40)
+    datetime = models.CharField(max_length=14)
+    point_numb = models.BigIntegerField()
+    dip = models.BigIntegerField()
+    dip_angle = models.BigIntegerField()
+    dip_prost = models.BigIntegerField()
+    rock = models.CharField(max_length=50)
+    point_type = models.CharField(max_length=50)
+    geom = models.MultiPointField()
+
+class pointX(models.Model):
+    cityName = models.TextField(default="kek")
+    main_information = models.TextField(default="Write some information here")
+    pointX = models.PointField()
 
 # -- coding: utf-8 --
 class type_foto(models.Model):
@@ -57,6 +104,9 @@ class Articles(models.Model):
         else:
             return self.text
 
+class shape_loader(models.Model):
+    file = models.FileField(upload_to="web/static/gis_data")
+    user_id = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
 class partner(models.Model):
     name = models.TextField()
@@ -151,27 +201,6 @@ class entrance_code(models.Model):
         return "%s,%s" % (self.specialization_code, self.specialization_id)
 
 
-class library_author(models.Model):
-    first_name = models.TextField(default="enter first name here")
-    last_name = models.TextField(default="enter last name here")
-
-    def __str__(self):
-        return "%s,%s" % (self.first_name, self.last_name)
-
-
-class library_book(models.Model):
-    name = models.TextField(default="enter name of the book")
-    author_id = models.ManyToManyField(library_author)
-    foto = models.ImageField(upload_to='web/static/img', default="#")
-    link_for_download = models.FileField(default="enter hyper link here", upload_to="web/static/docs")
-    published_in = models.DateField(default=datetime.date.today())
-    type_of_book = models.TextField(default="enter type of book")
-    user_id = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "%s" % (self.name)
-
-
 class subject_edu(models.Model):
     subj_name = models.TextField(default="enter name of subject here")
     code = models.TextField(default="OK 1")
@@ -199,6 +228,40 @@ class edu_prog(models.Model):
         return "%s" % (self.specialization_id)
 
 
+
+class Info(models.Model):
+    title = models.TextField(default="Enter title here")
+    image_head = models.ImageField(upload_to="web/static/img", default="#")
+    text = models.TextField()
+    date = models.DateField()
+    link_facebook = models.TextField(default="Enter link here")
+    link_telegram = models.TextField(default="Enter link here")
+    link_twitter = models.TextField(default="Enter link here")
+    user_id = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return super().__str__()
+
+class library_author(models.Model):
+    first_name = models.TextField(default="enter first name here")
+    last_name = models.TextField(default="enter last name here")
+
+    def __str__(self):
+        return "%s,%s" % (self.first_name, self.last_name)
+
+
+class library_book(models.Model):
+    name = models.TextField(default="enter name of the book")
+    author_id = models.ManyToManyField(library_author)
+    foto = models.ImageField(upload_to='web/static/img', default="#")
+    link_for_download = models.FileField(default="enter hyper link here", upload_to="web/static/docs")
+    published_in = models.DateField(default=datetime.date.today())
+    type_of_book = models.TextField(default="enter type of book")
+    user_id = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "%s" % (self.name)
+
 class entrance_specialization_way(models.Model):
     choise_field = (('Бакалавр', 'Бакалавр'), ('Магістр', 'Магістр'), ('Молодший спеціаліст', 'Молодший спеціаліст'))
     code_id = models.ForeignKey(entrance_code, default=1, on_delete=models.CASCADE)
@@ -214,17 +277,3 @@ class entrance_specialization_way(models.Model):
 
     def __str__(self):
         return "%s,%s" % (self.code_id, self.license)
-
-
-class Info(models.Model):
-    title = models.TextField(default="Enter title here")
-    image_head = models.ImageField(upload_to="web/static/img", default="#")
-    text = models.TextField()
-    date = models.DateField()
-    link_facebook = models.TextField(default="Enter link here")
-    link_telegram = models.TextField(default="Enter link here")
-    link_twitter = models.TextField(default="Enter link here")
-    user_id = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return super().__str__()

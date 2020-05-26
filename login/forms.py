@@ -26,12 +26,6 @@ class MyLoginForm(AuthenticationForm):
         fields = ('username', 'password')
 
 
-class MyPasswordResetFrom(PasswordResetForm):
-    email = forms.EmailField(widget=forms.TextInput(attrs={"class": "form-text required  w-100"}), max_length=254)
-
-    class Meta:
-        model = User
-        fields = ('email')
 
 
 class MyPasswordResetConfirm(SetPasswordForm):

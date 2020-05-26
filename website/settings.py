@@ -9,13 +9,13 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-import os
 
+import os
 GEOS_LIBRARY_PATH = r"D:\newfolder\Python\Lib\site-packages\osgeo\geos_c.dll"
-GDAL_LIBRARY_PATH = r"D:\newfolder\Python\Lib\site-packages\osgeo\gdal204"
+GDAL_LIBRARY_PATH = r"C:\Users\User\Desktop\website\venv\Lib\site-packages\osgeo\gdal204"
+#GDAL_LIBRARY_PATH = r"D:\newfolder\Python\Lib\site-packages\osgeo\gdal204"
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'login',
     'photologue',
     'sortedm2m',
+    'leaflet'
     
 ]
 
@@ -55,7 +56,7 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "youketeroamano22@gmail.com"
-EMAIL_HOST_PASSWORD = "orjptkiozjgntynp"
+EMAIL_HOST_PASSWORD = "wnietixqlgnaykdo"
 EMAIL_PORT = 587
 
 MIDDLEWARE = [
@@ -96,14 +97,13 @@ LOGOUT_REDIRECT_URL = '/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "univ",
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': "univ1",
         'USER':"youkio",
         'PASSWORD':'718397',
         'HOST':'127.0.0.1',
         'PORT':'5432'
-    },
-
+    }
 }
 
 
@@ -148,3 +148,10 @@ STATIC_URL = '/web/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_URL = '/img/'
 
+LEAFLET_CONFIG={
+    'DEFAULT_CENTER':(43.23, 52.23),
+    'DEFAULT_ZOOM':5,
+    'MAX_ZOOM':20,
+    'MIN_ZOOM':3,
+    'SCALE':'both',
+}

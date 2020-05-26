@@ -1,0 +1,207 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+
+{% block title %}GIS APP {% endblock %}
+{% block content %}
+
+    <link rel="stylesheet"
+          href="https://js.arcgis.com/4.15/esri/themes/light/main.css"/>
+    <script src="https://js.arcgis.com/4.15/"></script>
+       <script>
+      require([
+        "esri/Map",
+        "esri/layers/GeoJSONLayer",
+        "esri/views/MapView",
+          "esri/widgets/Expand",
+        "esri/widgets/BasemapGallery",
+          "esri/widgets/LayerList",
+          "esri/widgets/Fullscreen"
+      ], function(Map, GeoJSONLayer, MapView,Expand,BasemapGallery,LayerList,Fullscreen) {
+
+        const url = "{% url 'cities' %}";
+        const url1 = "{% url 'points' %}";
+        const geol = "{% url "geol" %}";
+
+
+        const fwySym = {
+          type: "simple-fill", // autocasts as new SimpleLineSymbol()
+          color: "#30ffea",
+          width: "0.5px",
+          style: "solid"
+        };
+
+        // Symbol for U.S. Highways
+        const hwySym = {
+          type: "simple-fill", // autocasts as new SimpleLineSymbol()
+          color: "#ff6207",
+          width: "0.5px",
+          style: "solid"
+        };
+
+        const hwyRenderer = {
+          type: "unique-value", // autocasts as new UniqueValueRenderer()
+          legendOptions: {
+            title: "Freeway type"
+          },
+          defaultSymbol: hwySym,
+          defaultLabel: "State Highway",
+          field: "glg",
+          uniqueValueInfos: [
+            {
+              value: "A", // code for interstates/freeways
+              symbol: fwySym,
+              label: "Interstate"
+            }
+          ]
+        };
+
+
+
+        const template = {
+              title: "City Info",
+              content: [
+                  {
+                      type: "text",
+                      text:
+                          "City name is  <b>{city_name}</b> and it`s status is <b>{status}</b>"
+                  },
+                  {
+                      type: "media",
+                      mediaInfos: [
+                          {
+                              title: "",
+                              type: "image",
+                              caption: "{city_name}",
+                              value: {
+                                  sourceURL: ["http://127.0.0.1:8000/img/{image_city}"]
+                              }
+                          },
+                      ]
+                  },
+              ]
+          };
+
+        const template1 = {
+              title: "{point_type}",
+              content: [
+                  {
+                      type: "text",
+                      text:
+                          "Точка спостереження номер <b>{point_numb}</b><br> Назва точки спостереження: {name}<br>" +
+                          "Світа: {rock}<br>" +
+                          "Кут простягання: {dip_prost}<br>" +
+                          "Кут падіння: {dip_angle}<br>"
+                  },
+              ]
+          };
+
+
+         const renderer1 = {
+          type: "simple",
+          field: "rock",
+          symbol: {
+            type: "simple-marker",
+            color: "white",
+            outline: {
+              color: "black"
+            },
+            size: "10px",
+          },
+
+        };
+
+
+
+
+        const renderer = {
+          type: "simple",
+          field: "city",
+          symbol: {
+            type: "simple-marker",
+            color: "white",
+            outline: {
+              color: "red"
+            },
+            size: "10px",
+          },
+
+        };
+
+        const geojsonLayer = new GeoJSONLayer({
+          title:"City of Europe",
+          url: url,
+          popupTemplate: template,
+          renderer: renderer
+        });
+
+
+        const geojsonLayer1 = new GeoJSONLayer({
+          title:"Карпатська практика",
+          url: url1,
+          popupTemplate: template1,
+          renderer: renderer1
+        });
+
+
+
+        const geo = new GeoJSONLayer({
+            title:"Australian Geology",
+            url: geol,
+            renderer: hwyRenderer
+        });
+
+
+        const map = new Map({
+          basemap: "satellite",
+          layers: [geojsonLayer,geojsonLayer1,geo]
+        });
+
+        const view = new MapView({
+          container: "viewDiv",
+          center: [10, 46],
+          zoom: 5,
+          map: map
+        });
+
+        const basemapGallery = new BasemapGallery({
+          view: view,
+          container: document.createElement("div")
+        });
+
+        const bgExpand = new Expand({
+          view: view,
+          content: basemapGallery
+        });
+
+        view.ui.add(bgExpand, "top-left");
+
+        view.when(function() {
+          var layerList = new LayerList({
+            view: view,
+             container: document.createElement("div")
+          });
+            const bgExpand1 = new Expand({
+          view: view,
+          content: layerList
+        });
+          // Add widget to the top right corner of the view
+          view.ui.add(bgExpand1, "top-left");
+        });
+
+      });
+    </script>
+
+
+    <div id="viewDiv" class="col-12"
+         style="height: 800px">
+        <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div id = "form-field">
+            <h5>Форма для завантаження даних (формат zip)</h5>
+            <div class="mt-4">{{ form.file }}</div>
+            <button class="btn btn-success mt-4" type="submit">Завантажити</button>
+        </div>
+  </form>
+    </div>
+
+{% endblock %}

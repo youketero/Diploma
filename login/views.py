@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
 
 # Вариант регистрации на базе класса FormView
-from login.forms import MyForm, MyLoginForm, MyPasswordResetFrom, MyPasswordResetConfirm
+from login.forms import MyForm, MyLoginForm, MyPasswordResetConfirm
 
 
 class MyRegisterFormView(FormView):
@@ -39,21 +39,21 @@ class MyLoginFormView(FormView):
         return super(MyLoginFormView, self).form_invalid(form)
 
 
-class MyPasswordResetView(FormView):
-    form_class = MyPasswordResetFrom
+#class MyPasswordResetView(FormView):
+  #  form_class = MyPasswordResetFrom
 
 
-    success_url = "/accounts/password_reset/done/"
+  #  success_url = "/accounts/password_reset/done/"
 
-    template_name = "registration/password_reset_form.html"
-
-
-    def form_valid(self, form):
-        return super(MyPasswordResetView, self).form_valid(form)
+  #  template_name = "registration/password_reset_form.html"
 
 
-    def form_invalid(self, form):
-        return super(MyPasswordResetView, self).form_invalid(form)
+  #  def form_valid(self, form):
+ #       return super(MyPasswordResetView, self).form_valid(form)
+
+
+ #   def form_invalid(self, form):
+ #       return super(MyPasswordResetView, self).form_invalid(form)
 
 
 class MyPasswordResetConfirmView(FormView):

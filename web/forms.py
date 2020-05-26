@@ -1,4 +1,11 @@
 from django import forms
+from django.contrib.gis import forms
+from web.models import Points_city, shape_loader
+
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = shape_loader
+        fields = ('file',)
 
 choise_cath = (('geophysics', 'geophysics'), ('geoinformatics', 'geoinformatic'), ('geology', 'geolog'))
 choise_coucre = ((1, '1'), (2, '2'), (3, '3'))
@@ -14,3 +21,4 @@ class func_score(forms.Form):
     first_subject = forms.IntegerField(min_value=100, max_value=200)
     second_subject = forms.IntegerField(min_value=100, max_value=200)
     third_subject = forms.IntegerField(min_value=100, max_value=200)
+

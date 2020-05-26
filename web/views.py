@@ -1,16 +1,26 @@
 import q as q
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404, render_to_response
+from django.contrib.gis.db.models.functions import AsGeoJSON
+from django.core.files.storage import FileSystemStorage
+from django.core.serializers import serialize
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, render_to_response, redirect
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 # Create your views here.
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from django.contrib.postgres.search import SearchVector
 from django.views import View
 
+from web.forms import  DocumentForm
+from web.gis_data import run, run_shape
 from web.models import Articles, future_conference_anonce, entrance_specialization_way, \
     partner, type_foto, foto_article, foto_gallery, stucture_cathed, library_book, structure_person, edu_plan, \
-    entrance_subject, Info
+    entrance_subject, Info, pointX, Points, Points_city, Geology
 from photologue.models import *
+import zipfile
+
+
+
+
 
 
 def home(request):
@@ -80,6 +90,7 @@ def anonce1(request):
     return render(request, 'web/anonce.html', locals())
 
 
+
 def anonce_detail(request, anonce_id):
     anonce_details = get_object_or_404(future_conference_anonce, id=anonce_id)
     all_article = Articles.objects.order_by('id').reverse()[:8]
@@ -105,17 +116,14 @@ def cathed_b(request, cathed_name):
     teacher1 = structure_person.objects.filter(cathed_id__cathed_name=cathed_name)
     return render(request, "web/cathed.html", locals())
 
+def teacher(request, teacher):
+    teacher = get_object_or_404(structure_person, id=teacher)
+    return render(request, "web/teacher_info.html", locals())
 
 def info(request):
     all_article = Articles.objects.order_by("id").reverse()[:8]
     info = Info.objects.order_by("id").reverse()[:8]
     return render(request, "web/Information.html", locals())
-
-
-def teacher(request, teacher):
-    teacher = get_object_or_404(structure_person, id=teacher)
-    return render(request, "web/teacher_info.html", locals())
-
 
 def edu_plans(request):
     sub = entrance_specialization_way.objects.all()
@@ -170,3 +178,51 @@ def info_detailed(request, info_title):
     all_article = Articles.objects.order_by('id').reverse()[:8]
     info = Info.objects.order_by("id").reverse()[:8]
     return render(request, "web/info_for_students_detail.html", locals())
+
+def Gis_page(request):
+    folder = 'web\static\gis_data'
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = request.FILES["file"]
+            form.save()
+            fs = FileSystemStorage(location=folder)
+            with zipfile.ZipFile(fs.location+"\\"+str(name), 'r') as zip_ref:
+                zip_ref.extractall(fs.location)
+            run(str(name)[0:-4])
+            os.remove(fs.location + "\\" + str(name))
+        return render(request, "web/gis_page.html", locals())
+    else:
+        form = DocumentForm()
+        return render(request,"web/gis_page.html",locals())
+
+
+def Gis_page1(request):
+    folder = 'web\static\gis_data'
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = request.FILES["file"]
+            form.save()
+            fs = FileSystemStorage(location=folder)
+            with zipfile.ZipFile(fs.location+"\\"+str(name), 'r') as zip_ref:
+                zip_ref.extractall(fs.location)
+            run(str(name)[0:-4])
+            os.remove(fs.location + "\\" + str(name))
+        return render(request, "web/gis_page.html", locals())
+    else:
+        form = DocumentForm()
+        return render(request,"web/gis_page.html",locals())
+
+
+def gis_points(request):
+    gis_data = serialize("geojson",Points.objects.all())
+    return HttpResponse(gis_data,content_type="json")
+
+def gis_city(request):
+    gis_data = serialize("geojson",Points_city.objects.all())
+    return HttpResponse(gis_data,content_type="json")
+
+def geol(request):
+    geol_data = serialize("geojson",Geology.objects.all())
+    return HttpResponse(geol_data,content_type="json")

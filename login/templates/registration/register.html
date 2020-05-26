@@ -2,7 +2,7 @@
 {% block log_form %}
     <form action="" method="post">{% csrf_token %}
         {% if form.errors %}
-  <p class="mb-3 text-danger">Пароль або ім'я не співпадають</p>
+  <p class="mb-3 text-danger">Пароль або ім'я не відповідають стандарту</p>
 {% endif %}
         <div >
             <label for="edit-name"

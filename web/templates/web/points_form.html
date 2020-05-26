@@ -1,0 +1,28 @@
+{% extends "web/base.html" %}
+{% block head %}{{ form.media }}{% endblock %}
+{% block content %}
+
+    <div class="col-12 mt-3 p-0">
+        <form  method="POST">
+            {% csrf_token %}
+            <div class="row p-3">
+                <div class="col-lg-6">
+                    <div class="col-lg-12 col-md-6 col-sm-12 col-12 p-0">{{ form.geom }}</div>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="">Заповніть форму будь-ласка</h5>
+                    <div class="p-2  col-lg-12 col-md-12  col-sm-12 col-12"><p class="py-1">{{ form.city_name.label }}</p>{{ form.city_name }}</div>
+                    <div class="p-2  col-lg-12 col-md-12  col-sm-12 col-12"><p class="pt-1">{{ form.admin_name.label }}</p>{{ form.admin_name }}</div>
+                    <div class="p-2 col-lg-12 col-md-12  col-sm-12 col-12"><p class="pt-1">{{ form.cntry_name.label }}</p>{{ form.cntry_name }}</div>
+                    <div class="p-2 col-lg-12 col-md-12  col-sm-12 col-12"><p class="pt-1">{{ form.status.label }}</p>{{ form.status }}</div>
+                    <div class="p-2 col-lg-12 col-md-12  col-sm-12 col-12"><p class="pt-1">{{ form.image_city.label }}</p>{{ form.image_city}}</div>
+                    <div class="p-2 col-lg-12 col-md-12  col-sm-12 col-12">
+                        <button class="btn btn-primary my-2" type="submit" value="Submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

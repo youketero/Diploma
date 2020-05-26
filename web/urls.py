@@ -28,5 +28,10 @@ urlpatterns = [
     url(r'^science_learning/$', web.views.science_learning, name="science_learning"),
     url(r'^phd_learning/$', web.views.phd_learning, name="phd_learning"),
     url(r'^info_for_students/$', web.views.info_for_students, name="info_for_students"),
-    url(r'^info_for_students_detailed/(?P<info_title>.*)/$', web.views.info_detailed, name="info_for_students_detailed")
+    url(r'^info_for_students_detailed/(?P<info_title>.*)/$', web.views.info_detailed, name="info_for_students_detailed"),
+    url(r'^gis_page/$',web.views.Gis_page, name="gis"),
+    url(r'^cities/$',web.views.gis_city,name="cities"),
+    url(r'^points/$',web.views.gis_points,name="points"),
+    url(r'^geol/$',web.views.geol,name="geol"),
+    url(r'^gis_page1/$',web.views.Gis_page1,name="gis1"),
 ]

@@ -1,0 +1,148 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+
+{% block title %}GIS APP{% endblock %}
+{% block content %}
+
+    <link rel="stylesheet"
+          href="https://js.arcgis.com/4.15/esri/themes/light/main.css"/>
+    <script src="https://js.arcgis.com/4.15/"></script>
+       <script>
+      require([
+        "esri/Map",
+        "esri/layers/GeoJSONLayer",
+        "esri/views/MapView",
+          "esri/widgets/Expand",
+        "esri/widgets/BasemapGallery",
+          "esri/widgets/LayerList",
+          "esri/widgets/Fullscreen",
+          "esri/tasks/QueryTask",
+        "esri/tasks/support/Query"
+      ], function(Map, GeoJSONLayer, MapView,Expand,BasemapGallery,LayerList,Fullscreen,QueryTask,Query) {
+
+        const url = "{% url 'cities' %}";
+
+        const template = {
+              title: "City Info",
+              content: [
+                  {
+                      type: "text",
+                      text:
+                          "City name is  <b>{city_name}</b> and it`s status is <b>{status}</b>"
+                  },
+                  {
+                      type: "media",
+                      mediaInfos: [
+                          {
+                              title: "",
+                              type: "image",
+                              caption: "{city_name}",
+                              value: {
+                                  sourceURL: ["http://127.0.0.1:8000/img/{image_city}"]
+                              }
+                          },
+                      ]
+                  },
+              ]
+          };
+
+        const renderer = {
+          type: "simple",
+          field: "city",
+          symbol: {
+            type: "simple-marker",
+            color: "white",
+            outline: {
+              color: "red"
+            },
+            size: "10px",
+          },
+
+        };
+
+        const geojsonLayer = new GeoJSONLayer({
+          title:"City of Europe",
+          url: url,
+          popupTemplate: template,
+          renderer: renderer
+        });
+
+
+         var qTask = new QueryTask({
+          url: url
+        });
+
+         var params = new Query({
+          returnGeometry: true,
+          outFields: ["*"]
+        });
+
+
+
+
+        const map = new Map({
+          basemap: "satellite",
+          layers: [geojsonLayer]
+        });
+
+        const view = new MapView({
+          container: "viewDiv",
+          center: [10, 46],
+          zoom: 5,
+          map: map
+        });
+
+        view.when(function() {
+          view.ui.add("optionsDiv", "bottom-right");
+          document.getElementById("doBtn").addEventListener("click", doQuery);
+        });
+
+        var attributeName = document.getElementById("attSelect");
+        var expressionSign = document.getElementById("signSelect");
+        var value = document.getElementById("valSelect");
+
+
+        function doQuery() {
+          // Clear the results from a previous query
+          params.where =
+            attributeName.value + expressionSign.value + value.value;
+
+          // executes the query and calls getResults() once the promise is resolved
+          // promiseRejected() is called if the promise is rejected
+          qTask
+            .execute(params)
+            .then(getResults)
+            .catch(promiseRejected);
+        }
+      });
+    </script>
+
+
+    <div id="viewDiv" class="col-12"
+         style="height: 600px">
+
+    </div>
+<div class="esri-widget" id="optionsDiv">
+      <h2>Prominent Peaks in the U.S.</h2>
+      <select class="esri-widget" id="attSelect">
+        <option value="ELEV_ft">Elevation</option>
+        <option value="PROMINENCE_ft" selected>Prominence</option>
+      </select>
+      <select class="esri-widget" id="signSelect">
+        <option value=">">is greater than</option>
+        <option value="<">is less than</option>
+        <option value="=">is equal to</option>
+      </select>
+      <select class="esri-widget" id="valSelect">
+        <option value="1000">1,000 ft</option>
+        <option value="5000">5,000 ft</option>
+        <option value="10000">10,000 ft</option>
+        <option value="15000">15,000 ft</option>
+        <option value="20000">20,000 ft</option>
+      </select>
+      <br />
+      <br />
+      <button class="esri-widget" id="doBtn">Do Query</button> <br />
+      <p><span id="printResults"></span></p>
+    </div>
+{% endblock %}
